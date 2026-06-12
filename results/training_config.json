@@ -1,0 +1,13 @@
+{
+  "date": "2026-06-12 11:11",
+  "total_timesteps": 2000000,
+  "learning_rate": 0.0001,
+  "n_steps": 2048,
+  "reward_shaping": "exploration bonus +0.01 per new cell",
+  "environment": "MiniGrid-FourRooms-v0",
+  "baseline_run": {
+    "timesteps": 500000,
+    "final_ep_rew_mean": 0.00811,
+    "reward_shaping": "none (sparse)"
+  }
+}
