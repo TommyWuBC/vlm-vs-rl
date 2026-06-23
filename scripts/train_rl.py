@@ -34,24 +34,25 @@ class myRewardWrapper(RewardWrapper):
         self.prev_dist = None
         return result
     def reward(self, reward):
-        dx = self.env.unwrapped.agent_pos[0] - self.goal_pos[0]
-        dy = self.env.unwrapped.agent_pos[1] - self.goal_pos[1]
+        pos = tuple(self.env.unwrapped.agent_pos) 
+        dx = pos[0] - self.goal_pos[0]
+        dy = pos[1] - self.goal_pos[1]
         distance = math.sqrt(dx**2 + dy**2)
-        if self.env.unwrapped.agent_pos not in self.visited:
+        if pos not in self.visited:
             reward = reward + 0.001
-            self.visited.add(self.env.unwrapped.agent_pos)
+            self.visited.add(pos)
         if self.prev_dist is None or distance < self.prev_dist:
             reward = reward +  0.01
         self.prev_dist = distance
         return reward
 
 # Create the environment
-env = gym.make("MiniGrid-FourRooms-v0")
+env = gym.make("MiniGrid-LavaCrossingS9N1-v0")
 env = myRewardWrapper(env)
 env = ImgObsWrapper(env)  # simplifies observation to just the image
 
 # Create a separate environment just for evaluation during training
-eval_env = gym.make("MiniGrid-FourRooms-v0")
+eval_env = gym.make("MiniGrid-LavaCrossingS9N1-v0")
 eval_env = ImgObsWrapper(eval_env)
 
 # This callback evaluates the agent every 10,000 steps and saves the best version
@@ -105,7 +106,7 @@ training_config = {
     "learning_rate": 1e-4,
     "n_steps": 2048,
     "reward_shaping": "exploration bonus +0.01 per new cell",
-    "environment": "MiniGrid-FourRooms-v0",
+    "environment": "MiniGrid-LavaCrossingS9N1-v0",
     "baseline_run": {
         "timesteps": 500_000,
         "final_ep_rew_mean": 0.00811,
@@ -117,7 +118,7 @@ with open("./results/training_config.json", "w") as f:
     json.dump(training_config, f, indent=2)
 print("Config saved to results/training_config.json")
 print("Starting training - this will run for ~20 minutes, just let it go...")
-model.learn(total_timesteps=2_00_000, callback=eval_callback)
+model.learn(total_timesteps=2_000_000, callback=eval_callback)
 model.save("./models/final_model")
 
 print("Training complete!")

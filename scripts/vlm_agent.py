@@ -17,11 +17,13 @@ load_dotenv(override=True)
 api_key = os.getenv("OPENAI_API_KEY")
 client = OpenAI(api_key=api_key)
 
-env = gym.make("MiniGrid-FourRooms-v0")
-prompt = """You are a robot in this minigrid world whose location is denoted by the red triangle. Your goal is to  reach the goal (preferably as quickly as possible),
-denoted by the green square. Each time, you may move once by stating an action from: (turn left, turn right, move forward, pick up, done), and a reasoning as to 
+env = gym.make("MiniGrid-LavaCrossingS9N1-v0")
+prompt = """You are a robot in this minigrid world whose location is denoted by the red triangle. Your goal is to  reach the goal (preferably as quickly as possible while avoiding the orange lava tiles),
+denoted by the green square. Note that you can only see a 7x7 area around you, not the whole map, so it is perfectly normal if you do not see the goal. In cases where 
+the goal is not visible, you should try to explore unvisited areas. To help with that, you will also be provided with the last 5 actions you have taken, so that you can use it to reason through and not
+ go back to visited areas. Once you see the goal, you should try to move towards it, while avoiding the lava. Each time, you may move once by stating an action from: (turn left, turn right, move forward), and a reasoning as to 
 why you made that choice. You will also be given an initial direction from 0-3, where 0=right, 1=down, 2=left, 3=up. Your responses should strictly be in the format of 
-reasoning: [thought] action: [action]"""
+reasoning: [thought] action: [action]. """
 
 def encode_observation(obs): 
     image = Image.fromarray(obs.astype(np.uint8))
@@ -37,8 +39,6 @@ ACTION_MAP = {
     "turn left": 0,
     "turn right": 1,
     "move forward": 2,
-    "pick up": 3,
-    "done": 6
 }
 for episode in range(NUM_EPISODES):
     observation, info = env.reset()
@@ -50,12 +50,13 @@ for episode in range(NUM_EPISODES):
     for step in range(MAX_STEPS):
         image_b64 = encode_observation(observation["image"])
         direction = observation["direction"]
+        # Dynamic - built each step inside the loop
         response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
                 {
                     "role": "system",
-                    "content": prompt  #static instructions
+                    "content": prompt
                 },
                 {
                     "role": "user",
@@ -67,7 +68,7 @@ for episode in range(NUM_EPISODES):
                         },
                         {
                             "type": "text",
-                            "text": f"Current direction: {direction}. What action do you take?"
+                            "text": f"Current direction: {direction}. Last 5 actions: {actions_taken[-5:]}. What action do you take?"
                         }
                     ]
                 }
@@ -75,6 +76,7 @@ for episode in range(NUM_EPISODES):
             max_tokens=120
         )
         action_text = response.choices[0].message.content.strip().lower()
+        reasoning = "" 
         if "action:" in action_text:
             parts = action_text.split("action:")
             reasoning = parts[0].replace("reasoning:", "").strip()
@@ -98,6 +100,7 @@ for episode in range(NUM_EPISODES):
         "actions": actions_taken,
         "reasoning": reasoning_taken
     })
+    
 #save results
 with open("results/vlm_results_cot.json", "w") as f:
     json.dump(results, f, indent=2)

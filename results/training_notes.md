@@ -25,4 +25,8 @@
 - Best model saved: models/best_model.zip
 - Result: significantly better than sparse reward baseline
 
-
+## Run 4 — LavaCrossing, 200k steps (accidental short run)
+- Environment: MiniGrid-LavaCrossingS9N1-v0
+- ep_rew_mean: 1.23 after just 200k steps
+- Agent successfully reaching goal + collecting exploration bonuses
+- Note: timesteps typo caused early termination, rerunning for 2M steps
