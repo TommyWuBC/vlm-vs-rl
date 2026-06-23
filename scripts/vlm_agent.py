@@ -10,18 +10,18 @@ import json
 import numpy as np
 import time
 
-NUM_EPISODES = 1
-MAX_STEPS = 30
+NUM_EPISODES = 10
+MAX_STEPS = 100
 
 load_dotenv(override=True)
 api_key = os.getenv("OPENAI_API_KEY")
 client = OpenAI(api_key=api_key)
 
 env = gym.make("MiniGrid-FourRooms-v0")
-prompt = """You are a robot in this minigrid world whose location is denoted by the red triangle. Your goal is to 
-reach the goal (preferably as quickly as possible), denoted by the green square. Each time, you may move once by stating an action
-from: (turn left, turn right, move forward, pick up, done). You will also be given an initial direction from 
-0-3, where 0=right, 1=down, 2=left, 3=up. STRICTLY ONLY RESPOND WITH THE ACTION AND NOTHING ELSE"""
+prompt = """You are a robot in this minigrid world whose location is denoted by the red triangle. Your goal is to  reach the goal (preferably as quickly as possible),
+denoted by the green square. Each time, you may move once by stating an action from: (turn left, turn right, move forward, pick up, done), and a reasoning as to 
+why you made that choice. You will also be given an initial direction from 0-3, where 0=right, 1=down, 2=left, 3=up. Your responses should strictly be in the format of 
+reasoning: [thought] action: [action]"""
 
 def encode_observation(obs): 
     image = Image.fromarray(obs.astype(np.uint8))
@@ -45,6 +45,7 @@ for episode in range(NUM_EPISODES):
     steps = 0
     success = False
     actions_taken = []# start fresh episode, new random goal position
+    reasoning_taken = []
     
     for step in range(MAX_STEPS):
         image_b64 = encode_observation(observation["image"])
@@ -71,14 +72,20 @@ for episode in range(NUM_EPISODES):
                     ]
                 }
             ],
-            max_tokens=20
+            max_tokens=120
         )
         action_text = response.choices[0].message.content.strip().lower()
+        if "action:" in action_text:
+            parts = action_text.split("action:")
+            reasoning = parts[0].replace("reasoning:", "").strip()
+            action_text = parts[-1].strip()
+            reasoning_taken.append(reasoning)
         action_int = ACTION_MAP.get(action_text, 2)  #defaults to move forward if unrecognized
         observation, reward, terminated, truncated, info = env.step(action_int)
         steps += 1
         actions_taken.append(action_text)
-        time.sleep(1) 
+        print(f"Ep {episode} Step {step}: {reasoning[:50]}... → {action_text}")
+        time.sleep(3) 
         if terminated:
             success = True
         if terminated or truncated:
@@ -88,10 +95,11 @@ for episode in range(NUM_EPISODES):
         "episode": episode,
         "success": success,
         "steps": steps,
-        "actions": actions_taken
+        "actions": actions_taken,
+        "reasoning": reasoning_taken
     })
 #save results
-with open("results/vlm_results.json", "w") as f:
+with open("results/vlm_results_cot.json", "w") as f:
     json.dump(results, f, indent=2)
 
 print("Done! Results saved.")

@@ -1,7 +1,7 @@
 import gymnasium as gym
 import minigrid
 
-env = gym.make("MiniGrid-FourRooms-v0", render_mode="human")
+env = gym.make("MiniGrid-LavaCrossingS9N1-v0", render_mode="human")
 observation, info = env.reset()
 
 print("Observation shape:", observation['image'].shape)

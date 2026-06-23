@@ -24,3 +24,5 @@
 - Best ep_rew_mean seen during training: ~0.6+
 - Best model saved: models/best_model.zip
 - Result: significantly better than sparse reward baseline
+
+
