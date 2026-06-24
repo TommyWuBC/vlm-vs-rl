@@ -30,3 +30,12 @@
 - ep_rew_mean: 1.23 after just 200k steps
 - Agent successfully reaching goal + collecting exploration bonuses
 - Note: timesteps typo caused early termination, rerunning for 2M steps
+
+## Run 4 — LavaCrossing, 2M steps (final run)
+- Environment: MiniGrid-LavaCrossingS9N1-v0
+- Final ep_rew_mean: 1.09 (training)
+- Final eval mean_reward: 0.568 ± 0.46
+- Agent solves task ~50-60% of episodes
+- High variance suggests inconsistent strategy
+- ep_len_mean: 141 steps (eval) — sometimes fast, sometimes fails
+- Best model saved: models/best_model.zip
