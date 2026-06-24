@@ -39,7 +39,7 @@ class myRewardWrapper(RewardWrapper):
         dy = pos[1] - self.goal_pos[1]
         distance = math.sqrt(dx**2 + dy**2)
         if pos not in self.visited:
-            reward = reward + 0.001
+            reward = reward + 0.0005
             self.visited.add(pos)
         if self.prev_dist is None or distance < self.prev_dist:
             reward = reward +  0.01
@@ -118,7 +118,7 @@ with open("./results/training_config.json", "w") as f:
     json.dump(training_config, f, indent=2)
 print("Config saved to results/training_config.json")
 print("Starting training - this will run for ~20 minutes, just let it go...")
-model.learn(total_timesteps=2_000_000, callback=eval_callback)
+model.learn(total_timesteps=2_00_000, callback=eval_callback)
 model.save("./models/final_model")
 
 print("Training complete!")
