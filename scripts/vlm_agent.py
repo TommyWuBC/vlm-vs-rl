@@ -10,7 +10,7 @@ import json
 import numpy as np
 import time
 
-NUM_EPISODES = 10
+NUM_EPISODES = 20
 MAX_STEPS = 100
 
 load_dotenv(override=True)
@@ -18,12 +18,24 @@ api_key = os.getenv("OPENAI_API_KEY")
 client = OpenAI(api_key=api_key)
 
 env = gym.make("MiniGrid-LavaCrossingS9N1-v0")
-prompt = """You are a robot in this minigrid world whose location is denoted by the red triangle. Your goal is to  reach the goal (preferably as quickly as possible while avoiding the orange lava tiles),
-denoted by the green square. Note that you can only see a 7x7 area around you, not the whole map, so it is perfectly normal if you do not see the goal. In cases where 
-the goal is not visible, you should try to explore unvisited areas. To help with that, you will also be provided with the last 5 actions you have taken, so that you can use it to reason through and not
- go back to visited areas. Once you see the goal, you should try to move towards it, while avoiding the lava. Each time, you may move once by stating an action from: (turn left, turn right, move forward), and a reasoning as to 
-why you made that choice. You will also be given an initial direction from 0-3, where 0=right, 1=down, 2=left, 3=up. Your responses should strictly be in the format of 
-reasoning: [thought] action: [action]. """
+prompt = """You are a robot in a grid world. Your location is the red triangle. Your goal is the green square. Lava is orange — never move onto it.
+
+CRITICAL: Base your decision PRIMARILY on what you SEE in the image. Do not try to mathematically track your orientation from past actions — trust the image instead.
+
+You can only see a 7x7 area around you. The goal may not be visible. If you cannot see the goal, explore systematically. Your last 5 actions are provided to help you avoid backtracking — use them as a hint, not as your primary reasoning source.
+
+Rules:
+- If you see the green goal square: navigate toward it
+- If you see lava immediately ahead: turn instead of moving forward  
+- If you keep repeating the same actions: try something different
+- Trust what you see in the image over what you calculate from history
+
+Valid actions: turn left, turn right, move forward
+Direction reference: 0=right, 1=down, 2=left, 3=up
+
+Respond ONLY in this exact format:
+reasoning: [one sentence about what you see and why]
+action: [turn left / turn right / move forward]"""
 
 def encode_observation(obs): 
     image = Image.fromarray(obs.astype(np.uint8))
@@ -75,7 +87,7 @@ for episode in range(NUM_EPISODES):
             ],
             max_tokens=120
         )
-        action_text = response.choices[0].message.content.strip().lower()
+        action_text = response.choices[0].message.content.strip().strip('[].').lower()
         reasoning = "" 
         if "action:" in action_text:
             parts = action_text.split("action:")
