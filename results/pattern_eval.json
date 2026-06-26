@@ -1,0 +1,1354 @@
+{
+  "overall_success_rate": 0.398,
+  "total_episodes": 1662,
+  "n_patterns": 42,
+  "n_solved": 18,
+  "n_partial": 0,
+  "n_failed": 24,
+  "per_pattern": [
+    {
+      "pattern_id": 1,
+      "lava_positions": [
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          7,
+          2
+        ]
+      ],
+      "n_episodes": 35,
+      "n_success": 35,
+      "success_rate": 1.0
+    },
+    {
+      "pattern_id": 2,
+      "lava_positions": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          7,
+          4
+        ]
+      ],
+      "n_episodes": 29,
+      "n_success": 29,
+      "success_rate": 1.0
+    },
+    {
+      "pattern_id": 3,
+      "lava_positions": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          4
+        ]
+      ],
+      "n_episodes": 36,
+      "n_success": 36,
+      "success_rate": 1.0
+    },
+    {
+      "pattern_id": 4,
+      "lava_positions": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          7,
+          2
+        ]
+      ],
+      "n_episodes": 34,
+      "n_success": 34,
+      "success_rate": 1.0
+    },
+    {
+      "pattern_id": 5,
+      "lava_positions": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          4
+        ]
+      ],
+      "n_episodes": 32,
+      "n_success": 32,
+      "success_rate": 1.0
+    },
+    {
+      "pattern_id": 6,
+      "lava_positions": [
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "n_episodes": 44,
+      "n_success": 44,
+      "success_rate": 1.0
+    },
+    {
+      "pattern_id": 7,
+      "lava_positions": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ]
+      ],
+      "n_episodes": 53,
+      "n_success": 53,
+      "success_rate": 1.0
+    },
+    {
+      "pattern_id": 8,
+      "lava_positions": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          7,
+          2
+        ]
+      ],
+      "n_episodes": 51,
+      "n_success": 51,
+      "success_rate": 1.0
+    },
+    {
+      "pattern_id": 9,
+      "lava_positions": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          4
+        ]
+      ],
+      "n_episodes": 43,
+      "n_success": 43,
+      "success_rate": 1.0
+    },
+    {
+      "pattern_id": 10,
+      "lava_positions": [
+        [
+          6,
+          2
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "n_episodes": 41,
+      "n_success": 41,
+      "success_rate": 1.0
+    },
+    {
+      "pattern_id": 11,
+      "lava_positions": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          7,
+          2
+        ]
+      ],
+      "n_episodes": 48,
+      "n_success": 48,
+      "success_rate": 1.0
+    },
+    {
+      "pattern_id": 12,
+      "lava_positions": [
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "n_episodes": 33,
+      "n_success": 33,
+      "success_rate": 1.0
+    },
+    {
+      "pattern_id": 13,
+      "lava_positions": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          7,
+          2
+        ]
+      ],
+      "n_episodes": 33,
+      "n_success": 33,
+      "success_rate": 1.0
+    },
+    {
+      "pattern_id": 14,
+      "lava_positions": [
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          4
+        ]
+      ],
+      "n_episodes": 25,
+      "n_success": 25,
+      "success_rate": 1.0
+    },
+    {
+      "pattern_id": 15,
+      "lava_positions": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ]
+      ],
+      "n_episodes": 40,
+      "n_success": 40,
+      "success_rate": 1.0
+    },
+    {
+      "pattern_id": 16,
+      "lava_positions": [
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "n_episodes": 32,
+      "n_success": 32,
+      "success_rate": 1.0
+    },
+    {
+      "pattern_id": 17,
+      "lava_positions": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          7,
+          2
+        ]
+      ],
+      "n_episodes": 20,
+      "n_success": 20,
+      "success_rate": 1.0
+    },
+    {
+      "pattern_id": 18,
+      "lava_positions": [
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          4
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          7,
+          4
+        ]
+      ],
+      "n_episodes": 33,
+      "n_success": 33,
+      "success_rate": 1.0
+    },
+    {
+      "pattern_id": 19,
+      "lava_positions": [
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "n_episodes": 45,
+      "n_success": 0,
+      "success_rate": 0.0
+    },
+    {
+      "pattern_id": 20,
+      "lava_positions": [
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "n_episodes": 38,
+      "n_success": 0,
+      "success_rate": 0.0
+    },
+    {
+      "pattern_id": 21,
+      "lava_positions": [
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "n_episodes": 57,
+      "n_success": 0,
+      "success_rate": 0.0
+    },
+    {
+      "pattern_id": 22,
+      "lava_positions": [
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ]
+      ],
+      "n_episodes": 40,
+      "n_success": 0,
+      "success_rate": 0.0
+    },
+    {
+      "pattern_id": 23,
+      "lava_positions": [
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "n_episodes": 49,
+      "n_success": 0,
+      "success_rate": 0.0
+    },
+    {
+      "pattern_id": 24,
+      "lava_positions": [
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "n_episodes": 56,
+      "n_success": 0,
+      "success_rate": 0.0
+    },
+    {
+      "pattern_id": 25,
+      "lava_positions": [
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "n_episodes": 28,
+      "n_success": 0,
+      "success_rate": 0.0
+    },
+    {
+      "pattern_id": 26,
+      "lava_positions": [
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "n_episodes": 44,
+      "n_success": 0,
+      "success_rate": 0.0
+    },
+    {
+      "pattern_id": 27,
+      "lava_positions": [
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "n_episodes": 37,
+      "n_success": 0,
+      "success_rate": 0.0
+    },
+    {
+      "pattern_id": 28,
+      "lava_positions": [
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "n_episodes": 48,
+      "n_success": 0,
+      "success_rate": 0.0
+    },
+    {
+      "pattern_id": 29,
+      "lava_positions": [
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          6
+        ]
+      ],
+      "n_episodes": 47,
+      "n_success": 0,
+      "success_rate": 0.0
+    },
+    {
+      "pattern_id": 30,
+      "lava_positions": [
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "n_episodes": 35,
+      "n_success": 0,
+      "success_rate": 0.0
+    },
+    {
+      "pattern_id": 31,
+      "lava_positions": [
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "n_episodes": 33,
+      "n_success": 0,
+      "success_rate": 0.0
+    },
+    {
+      "pattern_id": 32,
+      "lava_positions": [
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "n_episodes": 34,
+      "n_success": 0,
+      "success_rate": 0.0
+    },
+    {
+      "pattern_id": 33,
+      "lava_positions": [
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "n_episodes": 41,
+      "n_success": 0,
+      "success_rate": 0.0
+    },
+    {
+      "pattern_id": 34,
+      "lava_positions": [
+        [
+          1,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "n_episodes": 43,
+      "n_success": 0,
+      "success_rate": 0.0
+    },
+    {
+      "pattern_id": 35,
+      "lava_positions": [
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "n_episodes": 37,
+      "n_success": 0,
+      "success_rate": 0.0
+    },
+    {
+      "pattern_id": 36,
+      "lava_positions": [
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "n_episodes": 42,
+      "n_success": 0,
+      "success_rate": 0.0
+    },
+    {
+      "pattern_id": 37,
+      "lava_positions": [
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          6,
+          4
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "n_episodes": 54,
+      "n_success": 0,
+      "success_rate": 0.0
+    },
+    {
+      "pattern_id": 38,
+      "lava_positions": [
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "n_episodes": 37,
+      "n_success": 0,
+      "success_rate": 0.0
+    },
+    {
+      "pattern_id": 39,
+      "lava_positions": [
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "n_episodes": 39,
+      "n_success": 0,
+      "success_rate": 0.0
+    },
+    {
+      "pattern_id": 40,
+      "lava_positions": [
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "n_episodes": 48,
+      "n_success": 0,
+      "success_rate": 0.0
+    },
+    {
+      "pattern_id": 41,
+      "lava_positions": [
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "n_episodes": 28,
+      "n_success": 0,
+      "success_rate": 0.0
+    },
+    {
+      "pattern_id": 42,
+      "lava_positions": [
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "n_episodes": 40,
+      "n_success": 0,
+      "success_rate": 0.0
+    }
+  ]
+}

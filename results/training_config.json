@@ -1,13 +1,10 @@
 {
-  "date": "2026-06-24 14:47",
-  "total_timesteps": 2000000,
+  "date": "2026-06-26 22:57",
+  "total_timesteps": 30000000,
   "learning_rate": 0.0001,
   "n_steps": 2048,
-  "reward_shaping": "exploration bonus +0.01 per new cell",
-  "environment": "MiniGrid-LavaCrossingS9N1-v0",
-  "baseline_run": {
-    "timesteps": 500000,
-    "final_ep_rew_mean": 0.00811,
-    "reward_shaping": "none (sparse)"
-  }
+  "n_envs": 8,
+  "policy": "MlpPolicy",
+  "reward_shaping": "manhattan distance shaping +0.1/-0.05/-0.02 + step penalty -0.001",
+  "environment": "MiniGrid-LavaCrossingS9N1-v0"
 }

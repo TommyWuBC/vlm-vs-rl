@@ -11,7 +11,6 @@ import torch as th
 import json
 from datetime import datetime
 from collections import deque
-from minigrid.wrappers import FullyObsWrapper
 
 print(th.cuda.is_available())
 print(th.cuda.get_device_name(0))
@@ -75,15 +74,13 @@ class MyRewardWrapper(RewardWrapper):
 def make_env():
     env = gym.make("MiniGrid-LavaCrossingS9N1-v0")
     env = MyRewardWrapper(env)
-    env = FullyObsWrapper(env)
-    env = ImgObsWrapper(env)   # extract image array from dict
+    env = ImgObsWrapper(env)
     return env
 
 def make_eval_env():
     env = gym.make("MiniGrid-LavaCrossingS9N1-v0")
     env = MyRewardWrapper(env)
-    env = FullyObsWrapper(env)
-    env = ImgObsWrapper(env)   # extract image array from dict
+    env = ImgObsWrapper(env)
     return env
 
 # Training env - 8 parallel
