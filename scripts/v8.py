@@ -78,16 +78,10 @@ class MyRewardWrapper(RewardWrapper):
             reward -= 0.1
         else:
             reward -= 0.04
-        pos = tuple(self.env.unwrapped.agent_pos)
-        if pos in self.visited_cells:
-            reward -= 0.05  # revisit penalty
-        self.visited_cells.add(pos)
-        reward -= 0.005
         self.prev_dist = dist
         return reward
 
     def reset(self, **kwargs):
-        self.visited_cells = set()
         result = self.env.reset(**kwargs)
         self.goal_pos = None
         for i in range(self.env.unwrapped.width):
@@ -170,11 +164,11 @@ model.set_logger(new_logger)
 
 print("Starting training...")
 model.learn(
-    total_timesteps=20_000_000,
+    total_timesteps=10_000_000,
     callback=[eval_callback, checkpoint_callback]
 )
 model.save("./models/final_model")
 print("Training complete!")
- 
+
 env.close()
 eval_env.close()

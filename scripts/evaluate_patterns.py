@@ -19,7 +19,7 @@ import json
 import os
 import gymnasium as gym
 import minigrid
-from minigrid.wrappers import ImgObsWrapper
+from minigrid.wrappers import FullyObsWrapper, ImgObsWrapper
 from stable_baselines3 import PPO
 from collections import defaultdict
 import numpy as np
@@ -51,6 +51,7 @@ def evaluate(model_path, env_name, n_episodes, episodes_per_pattern):
     # Load model
     print(f"Loading model from {model_path}...")
     env = gym.make(env_name)
+    env = FullyObsWrapper(env)
     env = ImgObsWrapper(env)
     model = PPO.load(model_path, env=env)
     print("Model loaded.\n")

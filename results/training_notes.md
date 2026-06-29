@@ -223,3 +223,154 @@ This sets up a clean three-way comparison:
   - VLM agent (GPT-4o-mini): 85% — global symbolic reasoning, zero training
   - RL + full observability: TBD — global visual input, learned policy
   - RL + partial observability: 39.8% — local visual input, learned policy
+
+  ## Run 8 — Full Observability + CnnPolicy
+- Environment: MiniGrid-LavaCrossingS9N1-v0
+- Timesteps: 10,000,000
+- Policy: CnnPolicy (switched from MlpPolicy)
+- Observation: FullyObsWrapper → ImgObsWrapper → MyRewardWrapper
+  (full 9x9 global grid view instead of 7x7 partial view)
+- Parallel envs: 8
+- Device: GPU (CNN benefits from GPU acceleration on 9x9 input)
+- Reward shaping (v6_bfs_full_obs):
+  - BFS distance to goal treating lava as impassable
+  - +0.12 for reducing BFS distance (slightly increased from v5)
+  - -0.10 for increasing BFS distance (slightly increased from v5)
+  - -0.04 for stagnating
+  - -0.005 step penalty
+  - Goal reward: flat +10.0
+  - Lava penalty: 3x default (-3.0)
+
+### Motivation
+Run 7 per-pattern evaluation revealed a systematic generalization
+failure: 18 patterns solved at 100%, 24 patterns solved at 0%, with
+no middle ground. Failed patterns shared a structural property —
+lava walls or gaps near the top/bottom edges of the grid that the
+agent rarely encountered early enough in episodes to learn from.
+This was diagnosed as a partial observability limitation: the 7x7
+agent-centric view combined with fixed starting position prevented
+the agent from generalizing position-specific navigation strategies.
+
+### Architecture Change: MLP → CNN
+Initial attempt with FullyObsWrapper + MlpPolicy produced degenerate
+behavior — agent learned a fixed action sequence (walking into right
+wall then down) that ignored lava and goal entirely. Diagnosis:
+- Partial obs (7x7) is agent-centric: position is implicit, view
+  rotates with agent, MLP only needs to map local visual patterns
+  to actions.
+- Full obs (9x9) is global: agent must locate itself within the
+  grid, decode facing direction from tile values, and translate
+  global directions to ego-centric actions.
+- MLPs have no spatial inductive bias — they see a flat 243-dim
+  vector and cannot efficiently learn "which tile is me."
+- The policy collapsed to a fixed action sequence that minimized
+  step penalty in the absence of learnable structure.
+
+Switched to CnnPolicy. CNNs have built-in spatial inductive bias
+and can locate the agent regardless of position via convolutional
+filters. This also justified switching back to GPU since CNN
+inference on 9x9 input is now compute-meaningful (unlike MLP on
+7x7 where transfer overhead exceeded GPU savings).
+
+### Wrapper Order Bug
+Original ordering had `MyRewardWrapper` innermost:
+gym.make → MyRewardWrapper → FullyObsWrapper → ImgObsWrapper
+This caused wrapper chain access issues when BFS tried to reach
+`self.env.unwrapped.grid`. Corrected ordering places reward
+wrapper outermost so it observes the final wrapped environment:
+gym.make → FullyObsWrapper → ImgObsWrapper → MyRewardWrapper
+
+### Key Finding So Far
+Observation format and policy architecture interact in non-obvious
+ways. Naively giving the agent more information (partial → full obs)
+made performance significantly worse when paired with the wrong
+policy class. This is a meaningful RL system design observation:
+the choice of observation representation must be matched to the
+inductive biases of the policy network. More information is not
+universally better.
+
+### Result
+- Overall success rate: 95.2% (40/42 patterns)
+- Solved (100%): 40/42 patterns
+- Partial (20-80%): 0/42 patterns
+- Failed (0%): 2/42 patterns
+- Evaluation episodes per pattern: 20-44
+- Best performance reached at approximately 2-3M timesteps
+- No meaningful improvement observed from 2-3M to 7.5M steps
+- Training terminated at 7.5M steps upon confirmed convergence
+- The binary 100%/0% split from Run 7 (partial obs) was almost
+  entirely resolved — 22 previously failing patterns now solved
+Both failures attributed to infinite spinning behavior — the agent
+enters a local rotation loop and never commits to a path. Visualization
+confirmed this is not lava-aversion freezing (Run 6/7 failure mode)
+but a distinct failure: value function uncertainty on specific map
+configurations causes the agent to indefinitely re-evaluate rather
+than act. Both failing patterns share structural properties currently
+under investigation (see Run 9 for attempted fix).
+
+## Run 9 — Revisit Penalty Experiment (Failed Run)
+- Environment: MiniGrid-LavaCrossingS9N1-v0
+- Timesteps: ~14M (terminated early)
+- Policy: CnnPolicy
+- Observation: FullyObsWrapper → ImgObsWrapper → MyRewardWrapper
+- Parallel envs: 8
+- Device: GPU
+
+### Motivation
+Run 8 converged at 95.2% (40/42 patterns) with 2 persistent failures
+attributable to infinite spinning behavior. Visualization confirmed the
+agent enters local rotation loops on these patterns, unable to commit
+to a path. The stagnation penalty (-0.04) was already firing every
+step during spinning, suggesting the issue was not penalty magnitude
+but rather a value function that assigned equal expected return to all
+actions in certain states.
+
+Hypothesis: a revisit penalty — extra cost for returning to already-
+visited cells — would directly break rotation loops by making cyclic
+behavior increasingly expensive, without disrupting the 40 already-
+solved patterns.
+
+### Change from Run 8
+Added per-episode cell tracking and revisit penalty:
+- `self.visited_cells = set()` initialized in reset()
+- `-0.05` penalty applied whenever agent returns to a previously
+  visited cell
+- All other reward parameters unchanged from Run 8
+
+### What Went Wrong
+The revisit penalty created a conflicting signal the agent could not
+resolve. The agent faced simultaneous punishment for:
+- Moving to already-visited cells (-0.05 revisit penalty)
+- Not making BFS progress (-0.04 stagnation + -0.005 step penalty)
+
+Rather than learning to explore new territory, the policy converged
+to a local minimum satisfying neither objective. At 14M steps:
+- ep_rew_mean: -6.82 (vs +7.41 at 1.4M steps in Run 8)
+- explained_variance: 0.975 — value function fully converged on a
+  bad policy with no remaining gradient signal to escape
+- approx_kl: 0.003 — policy updates effectively stopped
+
+The high explained_variance combined with strongly negative reward
+is the signature of a converged-to-local-minimum failure: the model
+is extremely confident in a bad policy.
+
+### Key Insight
+The revisit penalty assumption was wrong. The spinning behavior in
+Run 8 was not caused by insufficient penalty for revisiting cells —
+it was caused by the value function being uncertain about long-horizon
+paths in 2 specific map configurations. Adding revisit penalties
+created a reward landscape where all movement options were penalized,
+trapping the agent rather than freeing it.
+
+This confirms that the Run 8 reward configuration (+0.12/-0.1/-0.04
+BFS shaping, -0.005 step penalty, 3x lava, +10 goal) was well-
+calibrated. The 2 failing patterns represent a genuine ceiling for
+this reward design, not an engineering failure.
+
+### Result
+Run terminated early at 14M steps. Run 8's best model (95.2%,
+40/42 patterns) retained as the final RL agent for comparison.
+The 2 persistent failures are documented as a known limitation
+attributable to value function uncertainty on specific map
+configurations, suggested future fix: curriculum learning or
+entropy regularization to maintain exploration in hard cases.

@@ -12,27 +12,6 @@ import json
 from datetime import datetime
 from collections import deque
 from minigrid.wrappers import FullyObsWrapper
-from stable_baselines3.common.torch_layers import BaseFeaturesExtractor
-import torch.nn as nn
-
-class MinigridFeaturesExtractor(BaseFeaturesExtractor):
-    def __init__(self, observation_space, features_dim=128):
-        super().__init__(observation_space, features_dim)
-        n_input_channels = observation_space.shape[0]
-        self.cnn = nn.Sequential(
-            nn.Conv2d(n_input_channels, 16, kernel_size=2, stride=1, padding=0),
-            nn.ReLU(),
-            nn.Conv2d(16, 32, kernel_size=2, stride=1, padding=0),
-            nn.ReLU(),
-            nn.Flatten(),
-        )
-        with th.no_grad():
-            sample = th.as_tensor(observation_space.sample()[None]).float()
-            n_flatten = self.cnn(sample).shape[1]
-        self.linear = nn.Sequential(nn.Linear(n_flatten, features_dim), nn.ReLU())
-
-    def forward(self, observations):
-        return self.linear(self.cnn(observations))
 
 print(th.cuda.is_available())
 print(th.cuda.get_device_name(0))
@@ -45,6 +24,7 @@ class MyRewardWrapper(RewardWrapper):
 
     def bfs_distance(self):
         """Distance to goal avoiding lava"""
+        print(type(self.env.unwrapped))  # should print MiniGridEnv
         grid = self.env.unwrapped.grid
         width = self.env.unwrapped.width
         height = self.env.unwrapped.height
@@ -78,16 +58,11 @@ class MyRewardWrapper(RewardWrapper):
             reward -= 0.1
         else:
             reward -= 0.04
-        pos = tuple(self.env.unwrapped.agent_pos)
-        if pos in self.visited_cells:
-            reward -= 0.05  # revisit penalty
-        self.visited_cells.add(pos)
         reward -= 0.005
         self.prev_dist = dist
         return reward
 
     def reset(self, **kwargs):
-        self.visited_cells = set()
         result = self.env.reset(**kwargs)
         self.goal_pos = None
         for i in range(self.env.unwrapped.width):
@@ -107,9 +82,9 @@ def make_env():
 
 def make_eval_env():
     env = gym.make("MiniGrid-LavaCrossingS9N1-v0")
-    env = FullyObsWrapper(env)   # full obs first
-    env = ImgObsWrapper(env)     # extract image array
-    env = MyRewardWrapper(env)   # reward wrapper outermost
+    env = MyRewardWrapper(env)
+    env = FullyObsWrapper(env)
+    env = ImgObsWrapper(env)   # extract image array from dict
     return env
 
 # Training env - 8 parallel
@@ -121,13 +96,12 @@ eval_env = make_vec_env(make_eval_env, n_envs=1)
 # Save config before training starts
 training_config = {
     "date": datetime.now().strftime("%Y-%m-%d %H:%M"),
-    "total_timesteps": 10_000_000,
+    "total_timesteps": 30_000_000,
     "learning_rate": 1e-4,
     "n_steps": 2048,
     "n_envs": 8,
-    "policy": "CnnPolicy",
-    "observation": "FullyObsWrapper (9x9 global view)",
-    "reward_shaping": "BFS distance shaping +0.12/-0.1/-0.04, step penalty -0.005, lava 3x, goal +10",
+    "policy": "MlpPolicy",
+    "reward_shaping": "manhattan distance shaping +0.1/-0.05/-0.02 + step penalty -0.001",
     "environment": "MiniGrid-LavaCrossingS9N1-v0",
 }
 with open("./results/training_config.json", "w") as f:
@@ -152,16 +126,12 @@ checkpoint_callback = CheckpointCallback(
 
 # Model
 model = PPO(
-    "CnnPolicy",
+    "MlpPolicy",
     env,
     verbose=1,
     learning_rate=1e-4,
     n_steps=2048,
-    device="cuda",
-    policy_kwargs=dict(
-        features_extractor_class=MinigridFeaturesExtractor,
-        features_extractor_kwargs=dict(features_dim=128),
-    )
+    device="cpu",
 )
 
 # Logger
@@ -170,11 +140,11 @@ model.set_logger(new_logger)
 
 print("Starting training...")
 model.learn(
-    total_timesteps=20_000_000,
+    total_timesteps=10_000_000,
     callback=[eval_callback, checkpoint_callback]
 )
 model.save("./models/final_model")
 print("Training complete!")
- 
+
 env.close()
 eval_env.close()
