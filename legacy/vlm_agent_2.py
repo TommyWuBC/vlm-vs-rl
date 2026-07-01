@@ -9,37 +9,36 @@ import io
 import json
 import numpy as np
 import time
- 
+
 NUM_EPISODES = 20
 MAX_STEPS = 100
- 
+
 load_dotenv(override=True)
 api_key = os.getenv("OPENAI_API_KEY")
 client = OpenAI(api_key=api_key)
- 
+
 env = gym.make("MiniGrid-LavaCrossingS9N1-v0", render_mode="rgb_array")
- 
+
 prompt = """You are navigating a grid world. You can see the ENTIRE map.
-Your location is the red triangle. Your goal is the green square.
+Your location is the red triangle. Your goal is the green square. 
 Lava is orange — never move onto it.
- 
-Before acting, reason through these four steps explicitly:
-1. WHERE AM I: Describe your position on the map (top/middle/bottom, left/center/right)
-2. WHERE IS THE GOAL: Describe the green square's position
-3. WHERE IS THE GAP: Identify the gap in the lava wall and which side it is on
-4. NEXT STEP: Given the above, what is the single best action to take right now?
- 
+
+Since you can see the full map, plan your route carefully before acting.
+Find the gap in the lava wall and navigate through it to reach the goal.
+
+Rules:
+- Plan the optimal path using the full map view
+- Never move onto lava
+- If you see the goal: navigate toward it via the safe path
+- Avoid backtracking
+
 Valid actions: turn left, turn right, move forward
 Direction reference: 0=right, 1=down, 2=left, 3=up
- 
+
 Respond ONLY in this exact format:
-position: [where you are on the map]
-goal: [where the green square is]
-gap: [where the gap in the lava wall is]
-next_step: [one sentence explaining your chosen action]
+reasoning: [one sentence about the full map layout and your planned path]
 action: [turn left / turn right / move forward]"""
- 
- 
+
 def encode_observation(obs):
     image = Image.fromarray(obs.astype(np.uint8))
     image = image.resize((224, 224), Image.NEAREST)
@@ -48,27 +47,26 @@ def encode_observation(obs):
     image_bytes = buffer.getvalue()
     image_b64 = base64.b64encode(image_bytes).decode()
     return image_b64
- 
- 
+
 results = []
 ACTION_MAP = {
     "turn left": 0,
     "turn right": 1,
     "move forward": 2,
 }
- 
+
 for episode in range(NUM_EPISODES):
     observation, info = env.reset()
     steps = 0
     success = False
     actions_taken = []
     reasoning_taken = []
- 
+
     for step in range(MAX_STEPS):
-        full_image = env.render()
-        image_b64 = encode_observation(full_image)
+        full_image = env.render()          # get full grid render
+        image_b64 = encode_observation(full_image)  # encode it
         direction = observation["direction"]
- 
+
         response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
@@ -87,42 +85,34 @@ for episode in range(NUM_EPISODES):
                         },
                         {
                             "type": "text",
-                            "text": f"Current direction: {direction}. Last 5 actions: {actions_taken[-5:]}. Work through the four steps, then give your action."
+                            "text": f"Current direction: {direction}. Last 5 actions: {actions_taken[-5:]}. What action do you take?"
                         }
                     ]
                 }
             ],
-            max_tokens=200  # increased to allow for longer CoT reasoning
+            max_tokens=120
         )
- 
-        response_text = response.choices[0].message.content.strip().lower()
- 
-        # extract action from response
-        action_text = "move forward"  # default
-        if "action:" in response_text:
-            action_part = response_text.split("action:")[-1].strip()
-            # clean up any trailing punctuation
-            action_text = action_part.strip('[].,').strip()
- 
-        # store full reasoning for analysis
-        reasoning_taken.append(response_text)
- 
+
+        action_text = response.choices[0].message.content.strip().strip('[].').lower()
+        reasoning = ""
+        if "action:" in action_text:
+            parts = action_text.split("action:")
+            reasoning = parts[0].replace("reasoning:", "").strip()
+            action_text = parts[-1].strip()
+            reasoning_taken.append(reasoning)
+
         action_int = ACTION_MAP.get(action_text, 2)
         observation, reward, terminated, truncated, info = env.step(action_int)
         steps += 1
         actions_taken.append(action_text)
- 
-        # print abbreviated output
-        preview = response_text[:80].replace('\n', ' ')
-        print(f"Ep {episode} Step {step}: {preview}... → {action_text}")
- 
+        print(f"Ep {episode} Step {step}: {reasoning[:50]}... → {action_text}")
         time.sleep(3)
- 
+
         if terminated:
             success = True
         if terminated or truncated:
             break
- 
+
     results.append({
         "episode": episode,
         "success": success,
@@ -130,14 +120,9 @@ for episode in range(NUM_EPISODES):
         "actions": actions_taken,
         "reasoning": reasoning_taken
     })
-    print(f"Episode {episode} done — success: {success}, steps: {steps}")
- 
-with open("results/vlm_results_cot_full_obs.json", "w") as f:
+
+with open("results/vlm_results_full_obs.json", "w") as f:
     json.dump(results, f, indent=2)
- 
-successes = sum(r["success"] for r in results)
-avg_steps = sum(r["steps"] for r in results) / len(results)
-print(f"\nDone! Results saved.")
-print(f"Success rate: {successes}/{NUM_EPISODES} ({100*successes/NUM_EPISODES:.1f}%)")
-print(f"Average steps: {avg_steps:.1f}")
+
+print("Done! Results saved.")
 env.close()

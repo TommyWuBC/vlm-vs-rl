@@ -1,0 +1,524 @@
+{
+  "summary": {
+    "MiniGrid-LavaCrossingS9N2-v0": {
+      "n_episodes": 50,
+      "n_success": 10,
+      "success_rate": 0.2,
+      "avg_steps_all": 166.5,
+      "avg_steps_success": 14.0
+    },
+    "MiniGrid-LavaCrossingS9N3-v0": {
+      "n_episodes": 50,
+      "n_success": 5,
+      "success_rate": 0.1,
+      "avg_steps_all": 134.0,
+      "avg_steps_success": 14.4
+    }
+  },
+  "episodes": {
+    "MiniGrid-LavaCrossingS9N2-v0": [
+      {
+        "episode": 0,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 1,
+        "success": false,
+        "steps": 1
+      },
+      {
+        "episode": 2,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 3,
+        "success": false,
+        "steps": 13
+      },
+      {
+        "episode": 4,
+        "success": true,
+        "steps": 17
+      },
+      {
+        "episode": 5,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 6,
+        "success": false,
+        "steps": 3
+      },
+      {
+        "episode": 7,
+        "success": true,
+        "steps": 13
+      },
+      {
+        "episode": 8,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 9,
+        "success": true,
+        "steps": 15
+      },
+      {
+        "episode": 10,
+        "success": false,
+        "steps": 10
+      },
+      {
+        "episode": 11,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 12,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 13,
+        "success": false,
+        "steps": 6
+      },
+      {
+        "episode": 14,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 15,
+        "success": false,
+        "steps": 1
+      },
+      {
+        "episode": 16,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 17,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 18,
+        "success": true,
+        "steps": 14
+      },
+      {
+        "episode": 19,
+        "success": true,
+        "steps": 13
+      },
+      {
+        "episode": 20,
+        "success": true,
+        "steps": 15
+      },
+      {
+        "episode": 21,
+        "success": false,
+        "steps": 3
+      },
+      {
+        "episode": 22,
+        "success": true,
+        "steps": 13
+      },
+      {
+        "episode": 23,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 24,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 25,
+        "success": false,
+        "steps": 5
+      },
+      {
+        "episode": 26,
+        "success": false,
+        "steps": 12
+      },
+      {
+        "episode": 27,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 28,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 29,
+        "success": false,
+        "steps": 8
+      },
+      {
+        "episode": 30,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 31,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 32,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 33,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 34,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 35,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 36,
+        "success": false,
+        "steps": 1
+      },
+      {
+        "episode": 37,
+        "success": true,
+        "steps": 13
+      },
+      {
+        "episode": 38,
+        "success": false,
+        "steps": 8
+      },
+      {
+        "episode": 39,
+        "success": false,
+        "steps": 1
+      },
+      {
+        "episode": 40,
+        "success": true,
+        "steps": 14
+      },
+      {
+        "episode": 41,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 42,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 43,
+        "success": false,
+        "steps": 4
+      },
+      {
+        "episode": 44,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 45,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 46,
+        "success": false,
+        "steps": 10
+      },
+      {
+        "episode": 47,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 48,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 49,
+        "success": true,
+        "steps": 13
+      }
+    ],
+    "MiniGrid-LavaCrossingS9N3-v0": [
+      {
+        "episode": 0,
+        "success": false,
+        "steps": 8
+      },
+      {
+        "episode": 1,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 2,
+        "success": false,
+        "steps": 3
+      },
+      {
+        "episode": 3,
+        "success": true,
+        "steps": 17
+      },
+      {
+        "episode": 4,
+        "success": false,
+        "steps": 10
+      },
+      {
+        "episode": 5,
+        "success": false,
+        "steps": 2
+      },
+      {
+        "episode": 6,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 7,
+        "success": false,
+        "steps": 13
+      },
+      {
+        "episode": 8,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 9,
+        "success": true,
+        "steps": 13
+      },
+      {
+        "episode": 10,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 11,
+        "success": true,
+        "steps": 13
+      },
+      {
+        "episode": 12,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 13,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 14,
+        "success": false,
+        "steps": 1
+      },
+      {
+        "episode": 15,
+        "success": false,
+        "steps": 7
+      },
+      {
+        "episode": 16,
+        "success": false,
+        "steps": 11
+      },
+      {
+        "episode": 17,
+        "success": false,
+        "steps": 6
+      },
+      {
+        "episode": 18,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 19,
+        "success": false,
+        "steps": 3
+      },
+      {
+        "episode": 20,
+        "success": false,
+        "steps": 12
+      },
+      {
+        "episode": 21,
+        "success": false,
+        "steps": 7
+      },
+      {
+        "episode": 22,
+        "success": false,
+        "steps": 3
+      },
+      {
+        "episode": 23,
+        "success": false,
+        "steps": 8
+      },
+      {
+        "episode": 24,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 25,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 26,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 27,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 28,
+        "success": false,
+        "steps": 5
+      },
+      {
+        "episode": 29,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 30,
+        "success": false,
+        "steps": 5
+      },
+      {
+        "episode": 31,
+        "success": false,
+        "steps": 4
+      },
+      {
+        "episode": 32,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 33,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 34,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 35,
+        "success": false,
+        "steps": 3
+      },
+      {
+        "episode": 36,
+        "success": false,
+        "steps": 8
+      },
+      {
+        "episode": 37,
+        "success": false,
+        "steps": 10
+      },
+      {
+        "episode": 38,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 39,
+        "success": true,
+        "steps": 13
+      },
+      {
+        "episode": 40,
+        "success": false,
+        "steps": 5
+      },
+      {
+        "episode": 41,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 42,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 43,
+        "success": false,
+        "steps": 1
+      },
+      {
+        "episode": 44,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 45,
+        "success": false,
+        "steps": 324
+      },
+      {
+        "episode": 46,
+        "success": false,
+        "steps": 3
+      },
+      {
+        "episode": 47,
+        "success": false,
+        "steps": 4
+      },
+      {
+        "episode": 48,
+        "success": false,
+        "steps": 8
+      },
+      {
+        "episode": 49,
+        "success": true,
+        "steps": 16
+      }
+    ]
+  }
+}

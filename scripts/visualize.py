@@ -1,48 +1,32 @@
-import numpy as np
 import matplotlib.pyplot as plt
-import json
+import numpy as np
 
-# Load RL training curve
-eval_data = np.load("results/evaluations.npz")
-timesteps = eval_data['timesteps']
-mean_rewards = eval_data['results'].mean(axis=1)  # average across eval episodes
+# Generalization data from rl_vs_vlm.md
+environments = ["S9N1\n(trained)", "S9N2\n(unseen)", "S9N3\n(unseen)"]
+rl_success = [95.2, 20.0, 10.0]
+vlm_success = [100.0, 100.0, 100.0]
 
-# Load VLM and RL evaluation results
-with open("results/vlm_results_cot.json") as f:
-    vlm_data = json.load(f)
-with open("results/rl_results.json") as f:
-    rl_data = json.load(f)
+x = np.arange(len(environments))
+width = 0.35
 
-# Calculate success rates
-vlm_success = sum(1 for e in vlm_data if e['success']) / len(vlm_data)
-rl_success = sum(1 for e in rl_data if e['success']) / len(rl_data)
+fig, ax = plt.subplots(figsize=(8, 5))
+bars1 = ax.bar(x - width/2, rl_success, width, label="RL (CNN, full obs)", color="coral")
+bars2 = ax.bar(x + width/2, vlm_success, width, label="VLM (GPT-4o-mini, zero-shot)", color="steelblue")
 
-print(f"VLM Success Rate: {vlm_success:.1%}")
-print(f"RL Success Rate: {rl_success:.1%}")
+ax.set_ylabel("Success Rate (%)")
+ax.set_title("Generalization to Unseen Lava Configurations")
+ax.set_xticks(x)
+ax.set_xticklabels(environments)
+ax.legend()
+ax.set_ylim(0, 110)
 
-# Plot 1: Training curve
-plt.figure(figsize=(10, 4))
-plt.plot(timesteps, mean_rewards)
-plt.xlabel("Training Steps")
-plt.ylabel("Mean Eval Reward")
-plt.title("RL Agent Learning Curve (LavaCrossing)")
-plt.grid(True)
+for bars in [bars1, bars2]:
+    for bar in bars:
+        height = bar.get_height()
+        ax.annotate(f'{height:.1f}%', xy=(bar.get_x() + bar.get_width()/2, height),
+                    xytext=(0, 3), textcoords="offset points", ha='center', fontweight='bold')
+
 plt.tight_layout()
-plt.savefig("results/learning_curve.png", dpi=150)
+plt.savefig("results/generalization_comparison.png", dpi=150)
 plt.close()
-
-# Plot 2: Success rate comparison
-plt.figure(figsize=(6, 4))
-plt.bar(["RL (PPO)", "VLM (GPT-4o-mini CoT)"],
-        [rl_success, vlm_success],
-        color=["coral", "steelblue"])
-plt.ylabel("Success Rate")
-plt.title("RL vs VLM: Navigation Success Rate")
-plt.ylim(0, 1)
-for i, v in enumerate([rl_success, vlm_success]):
-    plt.text(i, v + 0.02, f"{v:.1%}", ha='center', fontweight='bold')
-plt.tight_layout()
-plt.savefig("results/success_comparison.png", dpi=150)
-plt.close()
-
-print("Charts saved to results/")
+print("Saved generalization_comparison.png")

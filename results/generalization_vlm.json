@@ -1,0 +1,1116 @@
+{
+  "summary": {
+    "MiniGrid-LavaCrossingS9N2-v0": {
+      "n_episodes": 20,
+      "n_success": 20,
+      "success_rate": 1.0,
+      "avg_steps": 9.4
+    },
+    "MiniGrid-LavaCrossingS9N3-v0": {
+      "n_episodes": 20,
+      "n_success": 20,
+      "success_rate": 1.0,
+      "avg_steps": 8.9
+    }
+  },
+  "episodes": {
+    "MiniGrid-LavaCrossingS9N2-v0": [
+      {
+        "episode": 0,
+        "success": true,
+        "steps": 8,
+        "actions": [
+          "move forward",
+          "move forward",
+          "move forward",
+          "move forward",
+          "turn right",
+          "move forward",
+          "turn left",
+          "move forward"
+        ],
+        "reasoning": [
+          "the path from the red triangle to the green square includes moving down through the gap in the lava wall, then proceeding to the left to reach the goal.",
+          "the path is clear to move forward into the next gap in the lava wall and navigate toward the goal.",
+          "i need to find a gap in the lava wall and move down to reach the goal in the green square; the next gap is directly below me.",
+          "the current path is clear, and i need to navigate down to find the gap in the lava to reach the goal. i will continue moving forward.",
+          "the green square is located to the left and down from my current position, so i need to navigate through the gap in the lava by moving down first and then left.",
+          "the path is clear to move forward into the gap under the lava, which will allow me to continue toward the goal at the green square.",
+          "the path leads downward, but as moving down would hit a lava wall, i will turn left to navigate around it and find the next gap.",
+          "the path is clear to move forward to navigate to the first gap in the lava wall, allowing progression towards the green square."
+        ]
+      },
+      {
+        "episode": 1,
+        "success": true,
+        "steps": 1,
+        "actions": [
+          "move forward"
+        ],
+        "reasoning": [
+          "the path to the goal requires moving down to find the gap in the lava wall before proceeding right to the green square without backtracking."
+        ]
+      },
+      {
+        "episode": 2,
+        "success": true,
+        "steps": 6,
+        "actions": [
+          "move forward",
+          "move forward",
+          "turn right",
+          "move forward",
+          "move forward",
+          "move forward"
+        ],
+        "reasoning": [
+          "the optimal path is to move forward to the gap in the lava, then navigate down through the gaps and continue towards the green square.",
+          "the path is clear to move forward as the next cell is safe, enabling progress towards the goal.",
+          "the path forward is blocked by lava, so i need to turn to navigate around it while moving toward the goal.",
+          "you are currently facing down and need to navigate to the right through the gaps in the lava to reach the green square; since the last action was a turn right, i will now move forward to continue toward the gap.",
+          "i need to navigate down through the gap in the lava wall to reach the goal at the green square. the current direction is down and i can move forward safely.",
+          "the path requires moving down to navigate through the lava gaps, moving forward will take me to the next position in line with the goal."
+        ]
+      },
+      {
+        "episode": 3,
+        "success": true,
+        "steps": 1,
+        "actions": [
+          "move forward"
+        ],
+        "reasoning": [
+          "the path to the green square is blocked by lava on all sides except for a gap to the right, allowing me to move downward through the gap and navigate safely."
+        ]
+      },
+      {
+        "episode": 4,
+        "success": true,
+        "steps": 4,
+        "actions": [
+          "move forward",
+          "move forward",
+          "turn right",
+          "move forward"
+        ],
+        "reasoning": [
+          "the path is clear to move right, where i can begin to navigate through the gaps in the lava walls toward the green square.",
+          "i need to navigate downwards to reach the gap in the lava wall, then move left to find a safe path to the green square.",
+          "the path narrows ahead, but there is a gap in the lava wall on the right. i can turn and navigate downward to reach the green square without moving onto lava.",
+          "the path is clear to move downwards through the gap in the lava wall, so i will proceed in that direction."
+        ]
+      },
+      {
+        "episode": 5,
+        "success": true,
+        "steps": 21,
+        "actions": [
+          "move forward",
+          "turn left",
+          "turn left",
+          "move forward",
+          "move forward",
+          "turn right",
+          "turn left",
+          "turn right",
+          "turn right",
+          "move forward",
+          "turn left",
+          "turn left",
+          "move forward",
+          "move forward",
+          "turn right",
+          "turn right",
+          "move forward",
+          "move forward",
+          "move forward",
+          "turn right",
+          "move forward"
+        ],
+        "reasoning": [
+          "the goal is directly below the starting point, and i need to navigate through the gaps in the lava walls. moving down will allow me to progress toward the goal without backtracking.",
+          "the path ahead is blocked by lava, so i will need to turn left and navigate around the lava to reach the goal.",
+          "the goal is directly below, and i need to navigate down through the gaps in the lava to reach it. i will turn left to face down and can then move forward to progress downward through the lava gap.",
+          "the optimal path involves moving down, navigating through the first gap in the lava wall to reach the goal.",
+          "the red triangle is positioned to move forward into a column with a gap in the lava wall, allowing safe navigation towards the goal.",
+          "the goal is to navigate through the lava gaps, moving downwards on the left side first then right towards the green square. the next safe move from the current position is to turn right and then move forward to avoid lava.",
+          "the red triangle is facing up and needs to navigate left to avoid lava, then down to reach the green square safely, so i will turn left first.",
+          "i need to navigate down, avoiding the lava barriers to reach the green goal at the bottom right, so i will turn right and then move forward.",
+          "given the layout, i need to navigate down through the gaps in the lava to reach the green square at the bottom. the current direction is facing up, so i will need to adjust my direction to move down through the safe path.",
+          "the red triangle is directly above a gap in the first lava wall and can move down into the gap, navigating toward the green square safely.",
+          "the path is blocked below and to the right by lava, so i will navigate left to find the gap in the lava wall before moving down toward the goal.",
+          "the path from my current position needs me to navigate through the gaps in the lava wall on the left to reach the green square safely. i will turn left to face the first gap in the lava.",
+          "i need to navigate down and around the lava wall to reach the goal without backtracking or moving onto lava, and moving forward will allow me to do that.",
+          "the path is open to the right, allowing movement towards the gap in the lava wall, so i will move forward to progress safely.",
+          "i need to navigate downwards through the gaps in the lava walls to reach the green square, so i will turn right and move past the initial lava wall.",
+          "the current position is facing up towards the lava wall; i need to turn right to face towards the gap in the lava wall and then move forward.",
+          "i need to navigate down through the gap in the lava wall, then move left to reach the goal in the green square below.",
+          "i need to navigate down to the gap in the lava wall on the right to eventually reach the green goal square. since i'm currently facing right and can move forward to get closer to the goal, i'll proceed in that direction.",
+          "the path is clear to navigate through the gaps in the lava walls, with the green square directly reachable from my current position. i will move forward to reach the goal.",
+          "the current location is at the top and needs to navigate down through the gaps in the lava walls to reach the goal at the bottom left; turning right will lead further along safe paths.",
+          "i need to navigate through the gap in the lava walls below by first moving down to avoid the lava and reach the goal on the bottom right."
+        ]
+      },
+      {
+        "episode": 6,
+        "success": true,
+        "steps": 4,
+        "actions": [
+          "move forward",
+          "turn down",
+          "turn right",
+          "move forward"
+        ],
+        "reasoning": [
+          "the path to the green square needs to navigate down through the gaps in the lava walls below the starting position. moving down will allow me to access the gap in the lava.",
+          "the red triangle is on the top left and needs to navigate down and around the lava walls, moving towards the gaps to reach the green square. i will first turn down and then move forward towards the gap in the lava.",
+          "i need to navigate right and then down to find the gap in the lava wall to reach the green square, so moving forward will not work because it leads to lava; i should turn right first.",
+          "the red triangle is currently facing down towards the goal, and there is a gap in the lava wall directly below it, allowing me to move forward safely toward the green square."
+        ]
+      },
+      {
+        "episode": 7,
+        "success": true,
+        "steps": 14,
+        "actions": [
+          "move forward",
+          "move forward",
+          "turn left",
+          "move forward",
+          "move forward",
+          "move forward",
+          "turn left",
+          "move forward",
+          "turn left",
+          "turn left",
+          "move forward",
+          "move forward",
+          "move forward",
+          "move forward"
+        ],
+        "reasoning": [
+          "the optimal path involves moving forward through the gap in the top lava wall and then continuing downwards to navigate around the lava without backtracking.",
+          "the optimal path is to navigate down through the gap in the lava wall directly below me to reach the green square.",
+          "the red triangle is currently two spaces to the left of the green square, and there is a gap in the lava wall below that allows me to move down towards the goal after turning left.",
+          "the path is clear to move forward without hitting any lava, and i need to continue toward the green square.",
+          "the current position is just above a gap in the lava wall, enabling a straightforward downward path to the goal.",
+          "the goal is to move down towards the green square while navigating through the gap in the lava wall; moving forward will take me closer to the goal without hitting lava.",
+          "the red triangle is currently facing up, and to reach the green square, i need to turn left to continue navigating downwards without hitting any lava obstacles.",
+          "the path is clear; i will move forward to navigate toward the gap in the lava and get closer to the goal.",
+          "i need to navigate through the gap in the lava wall to the left and then head down toward the green square.",
+          "the red triangle is currently facing down with obstacles below, so i need to turn left to align horizontally and then navigate towards the gap in the lava.",
+          "the red triangle is located in the top left corner, with a clear path down to the green square at the bottom right, avoiding lava. i will move down to proceed towards the goal after my last action.",
+          "the path is clear to continue moving down through the gap without hitting lava, leading me directly toward the goal.",
+          "moving forward from my current position will lead me into a safe area without lava, allowing me to continue towards the goal.",
+          "the red triangle is currently facing right, and there is a safe path downwards through the opening in the lava wall directly below, leading toward the green square."
+        ]
+      },
+      {
+        "episode": 8,
+        "success": true,
+        "steps": 3,
+        "actions": [
+          "move forward",
+          "move forward",
+          "move forward"
+        ],
+        "reasoning": [
+          "the path to the green square is blocked by lava walls, but there is a gap in the first column that can be navigated downwards through the open path directly to the goal.",
+          "i need to navigate down through the first gap in the lava wall to my goal at the green square, so i will move forward again.",
+          "i am currently two steps away from the first gap in the lava wall and can move forward to reach it, then navigate through the gaps to reach the green square."
+        ]
+      },
+      {
+        "episode": 9,
+        "success": true,
+        "steps": 9,
+        "actions": [
+          "move forward",
+          "move forward",
+          "turn right",
+          "move forward",
+          "turn right",
+          "turn right",
+          "move forward",
+          "turn right",
+          "move forward"
+        ],
+        "reasoning": [
+          "the path to the goal involves moving down through the available gap in the lava and then to the right to reach the green square.",
+          "the path moves forward safely through the gap in the lava, leading directly downward to the next gap, and then towards the goal.",
+          "the red triangle is positioned towards the north of the grid and needs to navigate to the green square by turning right to find the gap in the lava at the end of the row.",
+          "you are currently facing down and need to navigate through the first gap in the lava wall directly below, then continue left to reach the goal at the green square.",
+          "currently, i'm facing down in a narrow corridor and need to navigate right to find a gap in the lava to reach the goal.",
+          "the path ahead is blocked by lava; i need to turn right to navigate around it and eventually head toward the green square.",
+          "the gap in the lava walls leads directly towards the green square when moving downward; thus, i will move forward to reach it.",
+          "there is a safe path to navigate downward through the gaps in the lava to reach the green goal at the bottom right. i will turn right to align myself with the gap in the lava wall.",
+          "the red triangle is at the bottom of a vertical wall of lava with gaps leading to the green square. i will move forward to navigate through the gap in the lava walls towards the goal."
+        ]
+      },
+      {
+        "episode": 10,
+        "success": true,
+        "steps": 3,
+        "actions": [
+          "move forward",
+          "move forward",
+          "move forward"
+        ],
+        "reasoning": [
+          "the path to the green square is clear to the right, as there is a gap in the lava. i will move toward the gap first.",
+          "the path is clear to move forward into the gap below the last lava section, allowing access to the area leading towards the green square.",
+          "the path ahead is clear, and i can continue moving forward to reach the next safe spot before proceeding toward the green goal."
+        ]
+      },
+      {
+        "episode": 11,
+        "success": true,
+        "steps": 32,
+        "actions": [
+          "move forward",
+          "move forward",
+          "move forward",
+          "turn left",
+          "turn left",
+          "move forward",
+          "move forward",
+          "move forward",
+          "turn right",
+          "move forward",
+          "turn right",
+          "move forward",
+          "move forward",
+          "move forward",
+          "turn right",
+          "turn left",
+          "move forward",
+          "turn left",
+          "move forward",
+          "move forward",
+          "turn right",
+          "move forward",
+          "turn left",
+          "turn left",
+          "move forward",
+          "move forward",
+          "turn right",
+          "move forward",
+          "turn right",
+          "move forward",
+          "turn right",
+          "move forward"
+        ],
+        "reasoning": [
+          "the path has a gap in the lava wall to the right, allowing access downward toward the green square goal. i will first move forward to be in position to navigate downwards later.",
+          "the path leads downward through a gap in the lava on the left; moving down is the next step toward the goal.",
+          "the path is clear to move down through the gap in the lava wall to reach the green square.",
+          "the path is clear; i will turn left to avoid the lava wall and position myself to move toward the gap below that leads to the goal.",
+          "starting from the top of the grid with a path downward through the gaps in the lava walls, i will turn left to continue navigating towards the gap in the lava wall below.",
+          "the current position is above a gap in the lava wall, and moving forward will navigate through the gap leading toward the green square.",
+          "the current position is one step above the next lava gap, and to reach the goal, i need to move down through the gap in the lava.",
+          "the red triangle is currently facing left and needs to navigate down through a gap in the lava wall below to reach the green square. moving forward will take it to the gap in the lava.",
+          "the path is clear to the right, allowing movement towards the goal while avoiding lava.",
+          "i need to navigate down through a gap in the lava wall to reach the goal, which is directly below my current position.",
+          "i need to navigate around the lava wall by turning and moving down through the gap, then heading toward the green square.",
+          "the path is blocked by lava to the right, but moving forward will allow me to navigate downward towards the goal.",
+          "i need to navigate down through the gap in the lava wall and then move to the right to reach the green square. the best first step is to move down.",
+          "i need to move down to reach the gap in the lava wall, and then i can navigate through it to move towards the goal.",
+          "the path ahead has a gap in the lava wall to the right that i can navigate through to reach the goal.",
+          "the path to the goal requires moving down through the gaps in the lava wall, so i will turn left to reposition towards the next gap.",
+          "the path is clear to navigate down by moving forward through the gap; there are no further obstacles to the goal in that direction.",
+          "the path ahead is blocked by lava, but turning left leads to a gap that i can navigate through towards the goal.",
+          "i need to move down to navigate around the lava barrier and align myself to the right of the goal.",
+          "i need to move down through the gap in the lava along the left side to reach the goal at the green square.",
+          "i need to navigate down and around the lava wall to reach the green square, so i will turn right to align myself with the gap.",
+          "the red triangle is currently at the top left, facing right (0-direction), and needs to navigate through the gaps in the lava to reach the green square below; first, i can move forward to reach the first gap.",
+          "i need to navigate through the gap in the lava wall directly in front of me after turning left, which will allow me to move down toward the green square safely.",
+          "the path to the green square requires navigating down through a gap in the lava wall directly below, after turning left.",
+          "the red triangle is currently facing left and i need to navigate down through the gaps in the lava walls to reach the green square below. i can move forward to reach the gap in the lava wall below.",
+          "i need to navigate downward through the gap in the lava wall directly below me to reach the goal located at the green square.",
+          "the current position is at the left edge, and i need to navigate downwards to find a gap in the lava wall, so i will turn towards the gap to proceed downward safely.",
+          "the path requires moving downwards through the gap in the lava wall to reach the goal at the green square.",
+          "the current location is just above the lava wall with the only exit on the right, so i will turn right, move around the lava, and then navigate down toward the goal.",
+          "i need to navigate down past the gap in the lava wall to reach the green square while avoiding backtracking.",
+          "the red triangle is positioned to the right and i need to navigate down to find a safe path around the lava walls below to reach the green square.",
+          "i need to navigate through the gaps in the lava to the green square, so i'll move forward to find an opening in the lava wall."
+        ]
+      },
+      {
+        "episode": 12,
+        "success": true,
+        "steps": 4,
+        "actions": [
+          "move forward",
+          "move forward",
+          "turn right",
+          "move forward"
+        ],
+        "reasoning": [
+          "i will move forward to the right until i reach the gap in the lava wall, then navigate down to reach the green square safely.",
+          "i plan to navigate down through the safe gap in the lava wall directly below my current position to progress toward the goal.",
+          "the red triangle is currently at the end of the horizontal path, and moving forward will lead into the lava; i need to turn to navigate through the safe path.",
+          "the path leads downward towards a gap in the lava strip, so moving forward is the next action to get closer to the goal at the green square."
+        ]
+      },
+      {
+        "episode": 13,
+        "success": true,
+        "steps": 40,
+        "actions": [
+          "move forward",
+          "move forward",
+          "turn right",
+          "turn right",
+          "turn right",
+          "turn left",
+          "turn right",
+          "move forward",
+          "turn left",
+          "move forward",
+          "turn right",
+          "turn right",
+          "move forward",
+          "turn right",
+          "move forward",
+          "move forward",
+          "move forward",
+          "turn right",
+          "turn right",
+          "move forward",
+          "move forward",
+          "turn right",
+          "turn left",
+          "move forward",
+          "move forward",
+          "move forward",
+          "move forward",
+          "turn right",
+          "turn right",
+          "move forward",
+          "move forward",
+          "turn right",
+          "turn right",
+          "turn right",
+          "move forward",
+          "move forward",
+          "turn left",
+          "move forward",
+          "turn left",
+          "move forward"
+        ],
+        "reasoning": [
+          "the path to the goal is clear by moving right to navigate through the gaps in the lava walls.",
+          "the path to the goal is clear by moving forward through the gap in the lava wall, followed by navigating down to reach the green square.",
+          "i need to navigate to the right and find the gap in the lava wall to move down towards the goal.",
+          "i need to navigate down and find a gap in the lava wall to reach the green square safely, so i'll turn right to align with the gaps.",
+          "the red triangle is positioned below a lava wall and needs to navigate downwards to reach the goal; i need to turn right to find a path around the lava.",
+          "the layout shows a clear path down to the green square by navigating through the gaps in the lava walls. i will turn to align towards the bottom gap of the next lava wall.",
+          "i need to navigate down through the gap in the lava wall, so i will turn right to align with the opening below me and then move forward.",
+          "the current position is facing up with a gap in the lava wall right ahead; i will move forward to navigate through the gap toward the green square.",
+          "the current position is at the top and i need to navigate through the gaps in the lava walls to reach the goal at the bottom right. i will turn left to face the gap below and move forward toward the first gap.",
+          "the path is blocked by lava to the left, but i can move forward along the safe path toward the goal.",
+          "the path to the goal involves navigating down through the gaps in the lava walls and then moving right. since i'm currently facing left and need to move down, i will turn right first.",
+          "the goal is located in the bottom right corner, and i need to navigate down through the gaps in the lava wall. i am currently facing up, so i will turn right to face right where there is a gap to move forward.",
+          "i need to navigate through the gaps in the lava walls to reach the green square, so i will move forward to safely advance toward the goal.",
+          "the red triangle is currently positioned at (0,1) facing right, with a clear path down towards the green square at (4,3) by navigating through the gaps in the lava strips. i'll turn right and then move forward to begin this route.",
+          "i need to navigate downward through the gaps in the lava walls to reach the green square, and i'm currently positioned to move downwards without hitting lava.",
+          "the path has several lava walls, but there is a gap directly below me that leads to the goal; i will move forward to continue towards it.",
+          "the current position is just below a gap in the second lava wall; moving forward will lead directly into the gap towards the goal.",
+          "the green square is to the right, and i need to navigate down through the gaps in the lava. turning to face the safe path is necessary.",
+          "the goal is directly down, and i can navigate through the gaps in the lava on the right without backtracking. i will turn right to align with the path toward the green square.",
+          "the optimal path is to navigate through the gap between the lava walls without backtracking, moving down towards the goal.",
+          "i need to navigate down through the gap in the lava wall to reach the goal, so i will move forward to progress downwards.",
+          "the path to the goal is towards the right, and i need to navigate through the gap in the lava; the next action is to turn right, then move forward.",
+          "the path to the goal involves navigating through the gaps in the lava wall directly in front of me after adjusting my direction.",
+          "the path is clear to move forward as the next grid cell does not contain lava, leading toward the goal, with a subsequent turn planned to navigate through the lava gaps.",
+          "the goal is directly down from my current position, and i can navigate through the gaps in the lava walls by moving forward safely.",
+          "my current position is 2 squares above the first lava gap, and i need to navigate down through the gaps without backtracking to reach the green square below. i will move forward to enter the gap in the lava below me.",
+          "the path is clear to navigate down through the gap in the lava wall directly below the current position to reach the goal.",
+          "i need to navigate through the gaps in the lava walls to reach the goal, so turning right will align me toward the gap directly below.",
+          "the path ahead is blocked by lava, so i need to turn to find a gap that leads towards the green square. turning right will align me with the gap in the lava directly ahead.",
+          "the goal is directly below the current position, and the path is clear with no lava in the way; therefore, moving forward will reach the goal.",
+          "the path ahead has a gap in the lava wall, so i will move forward to pass through it towards the goal.",
+          "i need to navigate downward to the green square while avoiding the lava, moving around the obstacles safely.",
+          "the red triangle is currently facing left (2) with lava walls on both sides, so to find a safe path, i need to turn right to face downwards and then move forward to navigate through the gaps in the lava walls towards the green square.",
+          "starting in the red triangle facing up, i will turn right to face right and then move forward through the gap in the lava wall toward the goal.",
+          "the red triangle is facing down with an open gap in the lava wall immediately below it, so i can move down to continue toward the goal.",
+          "the red triangle is currently facing right, and two gaps in the lava walls can be navigated by moving forward to reach the green square.",
+          "i need to navigate down through the gap in the lava wall to reach the green square at the bottom right corner, so i will move down after turning left to face the gap.",
+          "from the current position, i need to move through the available gap in the lava below to reach the goal to the green square.",
+          "the path to the goal is blocked by lava directly ahead; i need to turn left to navigate around the lava wall.",
+          "the red triangle is facing left, and there's a gap in the lava wall below it; moving forward will lead directly into the gap, allowing safe passage toward the goal."
+        ]
+      },
+      {
+        "episode": 14,
+        "success": true,
+        "steps": 1,
+        "actions": [
+          "move forward"
+        ],
+        "reasoning": [
+          "the path is clear downward through the gap on the left side of the lava wall, leading towards the green square goal."
+        ]
+      },
+      {
+        "episode": 15,
+        "success": true,
+        "steps": 3,
+        "actions": [
+          "move forward",
+          "turn right",
+          "move forward"
+        ],
+        "reasoning": [
+          "the path to the green square requires moving down through the gap in the lava wall below, then moving right to the goal area.",
+          "i need to navigate down past the first lava strip and then right toward the gap in the next lava wall to reach the goal.",
+          "the current position is at the top-left section of the grid, facing downwards, and the path requires moving down and then navigating right through the gaps in the lava to reach the goal."
+        ]
+      },
+      {
+        "episode": 16,
+        "success": true,
+        "steps": 18,
+        "actions": [
+          "move forward",
+          "move forward",
+          "move forward",
+          "turn left",
+          "move forward",
+          "move forward",
+          "turn right",
+          "move forward",
+          "move forward",
+          "turn right",
+          "move forward",
+          "turn left",
+          "turn left",
+          "turn right",
+          "move forward",
+          "turn right",
+          "move forward",
+          "move forward"
+        ],
+        "reasoning": [
+          "the path leads downward with a gap in the lava walls at the first row; i will move down to navigate toward the goal.",
+          "the current position is at the top left with a clear path downwards; i will navigate down to pass through the gap in the lava.",
+          "the path ahead is clear, so i will continue moving forward to get closer to the goal at the green square.",
+          "the only safe path through the lava walls is to turn left to navigate around the obstruction directly below me before moving down towards the goal.",
+          "the red triangle is facing up and i need to navigate through the gaps in the lava walls. after turning left, i will continue moving upward to progress towards the goal in the green square.",
+          "the path is clear below where i am, i can move down to navigate towards the green square while avoiding lava.",
+          "the path requires turning right and moving forward to navigate through the gaps in the lava walls and reach the green square at the bottom.",
+          "the path is clear to the right, allowing me to navigate through the gap in the lava wall directly toward the green square.",
+          "the optimal path involves moving down, navigating through the gap in the lava wall below, then moving right to reach the green square goal.",
+          "the path is blocked ahead by lava, so i need to turn right and find a gap to navigate through the lava to reach the goal.",
+          "move down to avoid lava and continue toward the goal located at the green square.",
+          "the path has one more gap of lava to navigate through, so i will turn left to align with that gap.",
+          "the goal is to navigate through the gaps in the lava walls to reach the green square; i'll turn left to face and move forward towards the first gap.",
+          "the red triangle is currently facing up and needs to navigate through the gaps in the lava wall. to reach the next gap, i will need to turn right and then move forward into the gap.",
+          "the path is clear to navigate downwards through the gap in the lava wall and move towards the green square.",
+          "the red triangle is currently positioned to the right of a vertical wall of lava with a gap below, so i will need to turn downwards and then move towards the gap to reach the green square without backtracking onto lava.",
+          "the current position is facing down, with a clear path to move forward to the next gap in the lava wall. the goal is directly below after navigating through the lava.",
+          "the optimal path is to move forward into the gap in the lava wall, then turn left to navigate towards the goal."
+        ]
+      },
+      {
+        "episode": 17,
+        "success": true,
+        "steps": 3,
+        "actions": [
+          "move forward",
+          "move forward",
+          "move forward"
+        ],
+        "reasoning": [
+          "the goal is directly below, and i can navigate downwards avoiding lava by moving down through the gap on the left side.",
+          "the path is clear to move forward through the gap in the lava directly ahead, allowing me to progress toward the goal.",
+          "the path is clear ahead with no lava in the next cell, allowing me to proceed towards the goal."
+        ]
+      },
+      {
+        "episode": 18,
+        "success": true,
+        "steps": 1,
+        "actions": [
+          "move forward"
+        ],
+        "reasoning": [
+          "the path is clear to navigate down through the gaps in the lava and then right to reach the green goal at the bottom."
+        ]
+      },
+      {
+        "episode": 19,
+        "success": true,
+        "steps": 13,
+        "actions": [
+          "move forward",
+          "turn right",
+          "move forward",
+          "turn left",
+          "move forward",
+          "move forward",
+          "move forward",
+          "turn left",
+          "turn left",
+          "move forward",
+          "turn left",
+          "move forward",
+          "move forward"
+        ],
+        "reasoning": [
+          "the path from the red triangle to the green square is blocked by lava, but there is a gap to navigate through after moving down. i will move down towards the gap in the lava wall.",
+          "the path goes right but is blocked by lava; i need to turn right, move down, then navigate through the gaps in the lava walls toward the goal.",
+          "i need to navigate down through the gap in the lava to reach the green square, so i will proceed downward.",
+          "the current position is two steps below the lava line and i need to navigate to the gap to the left to reach the green square; i will turn left to align with the gap.",
+          "the path leads through the gaps in the lava wall directly towards the goal, and i need to move forward to reach the next gap.",
+          "the path is clear; i will continue moving forward to reach the next gap in the lava wall.",
+          "the red triangle is currently facing right and one move away from the gap in the lava wall, which will allow me to move down toward the green square without backtracking.",
+          "i need to move around the lava wall to reach the goal, so i'll turn left to navigate back towards a gap.",
+          "i need to navigate down and find a gap in the lava wall to reach the green square at the bottom right; turning left allows me to face downwards.",
+          "i need to move through the gap in the lava directly to the left to reach the goal, which is below the current row on the left side of the lava.",
+          "since i am currently facing left and need to navigate downwards towards the green square while avoiding the lava walls, i will turn left to face up first.",
+          "i need to navigate down through the gap in the lava wall to reach the green square efficiently.",
+          "the path is blocked by lava on both sides, but moving forward will reach a gap to continue towards the goal."
+        ]
+      }
+    ],
+    "MiniGrid-LavaCrossingS9N3-v0": [
+      {
+        "episode": 0,
+        "success": true,
+        "steps": 21,
+        "actions": [
+          "move forward",
+          "turn left",
+          "turn left",
+          "move forward",
+          "move forward",
+          "turn right",
+          "turn left",
+          "move forward",
+          "turn right",
+          "move forward",
+          "move forward",
+          "move forward",
+          "turn left",
+          "turn left",
+          "move forward",
+          "move forward",
+          "turn right",
+          "move forward",
+          "move forward",
+          "turn left",
+          "move forward"
+        ],
+        "reasoning": [
+          "the path is clear to move downward through a gap in the lava strip below, leading toward the goal in the green square.",
+          "the path ahead is blocked by lava; i will need to turn left and then navigate down through the gap in the lava wall.",
+          "the path ahead leads to a wall, but i can turn left to navigate around the lava barrier and continue towards the goal.",
+          "i need to navigate down from the available gap in the lava wall, which allows me to move toward the goal.",
+          "the path is clear below, with a gap in the lava directly ahead that allows movement toward the green square, so i will move forward.",
+          "the red triangle is at the top left corner, so i need to turn down (direction 1) and navigate through the gaps in the lava to the green square at the bottom right. since i am facing left and there is an open path straight down, i will turn to face down and move forward to start moving towards the goal.",
+          "the red triangle is currently facing up and needs to navigate down through the gaps in the lava walls to reach the green square. moving forward from the current position will lead into a lava tile, so i will turn left first to face left, which opens a safe path.",
+          "the red triangle is currently at the top-left, and i need to navigate down through the gaps in the orange lava walls to reach the green square at the bottom-right, starting by moving down from the current location.",
+          "i need to navigate around the lava to reach the green square, so i will turn right to face the unobstructed path towards the goal.",
+          "the current position is below the lava wall and i need to navigate through the gap to the left to move towards the goal.",
+          "the goal is directly below me and there is a gap in the lava right below, allowing for a straightforward move down without backtracking.",
+          "i need to navigate down through the gap in the lava wall directly below me to reach the goal in the green square.",
+          "i need to turn and find the gap in the lava wall directly to my left to move toward the green square goal.",
+          "the path leads forward, allowing me to navigate through the gaps in the lava walls towards the green square, as turning left positions me for further movements.",
+          "the path is clear to move down to navigate through the gaps in the lava and reach the goal.",
+          "the path through the lava gaps is clear on the right side; i will need to move forward to continue towards the green square.",
+          "from the current position, moving forward will lead directly into a lava area; i need to turn right to navigate around the lava and head towards the next gap.",
+          "the path is clear to move forward toward the green square as there are no lava obstacles directly ahead.",
+          "you need to navigate through the gap in the lava wall directly in front to head towards the green square while avoiding backtracking.",
+          "i see a gap in the lava to my left that will allow me to navigate downwards, leading toward the green square.",
+          "the path is clear to move down one step, then i will need to navigate right to find the gap in the lava wall to reach the green square."
+        ]
+      },
+      {
+        "episode": 1,
+        "success": true,
+        "steps": 1,
+        "actions": [
+          "move forward"
+        ],
+        "reasoning": [
+          "the path to the goal requires moving right, then navigating down through the gaps in the lava, so i will move forward to start the path toward the goal."
+        ]
+      },
+      {
+        "episode": 2,
+        "success": true,
+        "steps": 8,
+        "actions": [
+          "move forward",
+          "turn left",
+          "move forward",
+          "turn left",
+          "move forward",
+          "move forward",
+          "turn left",
+          "move forward"
+        ],
+        "reasoning": [
+          "the path needs to navigate down through the gap in the lava wall, as there is no immediate safe path to the right. once down, i can continue moving left towards the goal.",
+          "the path ahead is blocked by lava, so i need to turn left to eventually navigate around it and find a safe path down to the green square.",
+          "i need to navigate down from the current position to find the gap in the lava wall below, then move towards the goal.",
+          "the full map has lava walls that the current path needs to navigate around to reach the green square safely; the next part of the route is to turn left and move down through the gap in the lava wall.",
+          "the current position is facing left (2) and the path has a gap in the lava directly below, allowing movement down towards the green square.",
+          "the planned path will take me down through the gap in the lava wall, moving toward the goal without any backtracking.",
+          "the path ahead is blocked by lava, so i need to turn left to find the next gap in the lava lines.",
+          "the full map shows a route through the gaps in the lava walls; i need to navigate down and then right to reach the goal without moving onto lava."
+        ]
+      },
+      {
+        "episode": 3,
+        "success": true,
+        "steps": 7,
+        "actions": [
+          "turn right",
+          "move forward",
+          "move forward",
+          "turn right",
+          "turn right",
+          "turn right",
+          "move forward"
+        ],
+        "reasoning": [
+          "the red triangle is at the top left corner, and the goal is at the bottom right corner. to navigate through the gaps in the lava walls, i will turn right and then move forward to reach the first gap in the lava wall.",
+          "the red triangle is currently facing down with a path to the goal that requires navigating through the gaps in the lava walls by moving down, left, down, right, and down again.",
+          "the available path is clear; i can move down through the gap in the lava directly ahead to get closer to the goal at the bottom right.",
+          "i need to navigate down through the gap in the lava wall to reach the green square, so i will turn right to face the right direction to move forward.",
+          "the path ahead requires navigating down through the gaps in the lava walls directly towards the goal, which is located at the bottom right. i will turn right first to align with the gap's entry.",
+          "the red triangle is currently facing up and needs to navigate down through gaps in the lava to reach the green square below; i will turn right to start moving in the correct direction toward the goal.",
+          "i need to navigate downward through the gap in the lava wall to reach the green square below while avoiding backtracking."
+        ]
+      },
+      {
+        "episode": 4,
+        "success": true,
+        "steps": 3,
+        "actions": [
+          "move forward",
+          "move forward",
+          "move forward"
+        ],
+        "reasoning": [
+          "the goal is to navigate through the gaps in the lava walls to reach the green square, moving down towards the first gap in the lava wall.",
+          "the path is clear to the right, and moving forward will take me into the safe zone without encountering lava.",
+          "the path is open to the right, and moving forward will lead me closer to the goal while avoiding lava."
+        ]
+      },
+      {
+        "episode": 5,
+        "success": true,
+        "steps": 1,
+        "actions": [
+          "move forward"
+        ],
+        "reasoning": [
+          "the red triangle is positioned at the top and needs to navigate right, down through the gaps in the lava walls to reach the green square at the bottom. the optimal path is to move right, down, down, left, left to reach the goal."
+        ]
+      },
+      {
+        "episode": 6,
+        "success": true,
+        "steps": 1,
+        "actions": [
+          "move forward"
+        ],
+        "reasoning": [
+          "the path is clear to move forward down through the gaps to reach the green square without hitting any lava walls."
+        ]
+      },
+      {
+        "episode": 7,
+        "success": true,
+        "steps": 13,
+        "actions": [
+          "move forward",
+          "turn right",
+          "turn right",
+          "move forward",
+          "move forward",
+          "turn left",
+          "move forward",
+          "turn left",
+          "move forward",
+          "move forward",
+          "move forward",
+          "move forward",
+          "move forward"
+        ],
+        "reasoning": [
+          "the path from the red triangle to the green square requires navigating through the gaps in the lava on the left side, moving downward first and then toward the right to reach the goal safely.",
+          "i need to navigate through the gaps in the lava walls to reach the green square at the bottom right corner, so i will turn right to move towards the gap below me.",
+          "i need to navigate down and to the right while avoiding the lava; i'll turn right to move along the safe path toward the goal.",
+          "the red triangle is positioned at the top left, and i need to navigate through the gaps in the lava walls towards the green square at the bottom right. based on my current orientation and position, i will move forward through the gap in the lava to progress toward the goal.",
+          "i need to navigate through the gaps in the lava walls to reach the goal, moving forward allows me to continue in the safe direction toward the green square.",
+          "the red triangle is currently facing left and is one step away from a gap in the lava wall; i will turn left to navigate towards the safe pathway.",
+          "i need to navigate down to the gap in the lava wall and then move towards the green square at the bottom.",
+          "the current position is just below the lava strip, so i will turn left to face the gap and then move forward along the safe path.",
+          "the current position is facing down with a clear gap to navigate through the lava walls below to reach the goal. i will move forward through the gap in the lava to progress toward the green square.",
+          "i've moved to the left and now face down; from this position, i can move down through the gap in the lava wall toward the goal.",
+          "the path to the green square can be reached by moving forward as it leads directly to the gap in the lava, then navigating towards the green square.",
+          "the red triangle is currently facing right and there is a gap in the lava directly ahead, allowing for forward movement towards the green square.",
+          "the goal is directly below my current location, and there is a gap in the lava wall directly south; i will move forward to reach it."
+        ]
+      },
+      {
+        "episode": 8,
+        "success": true,
+        "steps": 5,
+        "actions": [
+          "move forward",
+          "turn right",
+          "move forward",
+          "move forward",
+          "move forward"
+        ],
+        "reasoning": [
+          "the path from the red triangle to the green square requires moving down through gaps in the lava walls without backtracking. i will move down first to navigate toward the goal.",
+          "the path directly ahead is blocked by lava, so i need to turn to find a safe gap to navigate through the lava.",
+          "the red triangle is currently positioned at the top of the grid and needs to navigate downwards while avoiding the lava; moving down will allow progress toward the goal in the green square.",
+          "the path is clear to navigate down and then left through the gaps in the lava walls, allowing me to reach the green square safely.",
+          "the red triangle is currently facing down, and there is a clear path to navigate downwards and then to the right through the gaps in the lava to reach the green square."
+        ]
+      },
+      {
+        "episode": 9,
+        "success": true,
+        "steps": 1,
+        "actions": [
+          "move forward"
+        ],
+        "reasoning": [
+          "i need to navigate down from my current position, passing through the gap in the lava wall on my right, and then moving down towards the goal located in the green square."
+        ]
+      },
+      {
+        "episode": 10,
+        "success": true,
+        "steps": 1,
+        "actions": [
+          "move forward"
+        ],
+        "reasoning": [
+          "the path requires navigating around the lava walls to reach the green square; i will move forward to start this navigation."
+        ]
+      },
+      {
+        "episode": 11,
+        "success": true,
+        "steps": 9,
+        "actions": [
+          "move forward",
+          "move forward",
+          "turn left",
+          "move forward",
+          "move forward",
+          "move forward",
+          "move forward",
+          "turn right",
+          "move forward"
+        ],
+        "reasoning": [
+          "the safest path to the goal involves moving right to avoid the lava, then navigating downward through the gaps.",
+          "the goal is positioned to the right and below, and i need to navigate through the gaps in the lava walls. since i'm currently facing right and there's a gap in the lava directly ahead, i will proceed forward.",
+          "the path ahead is blocked by lava, so i need to turn left to navigate around the lava wall and find a gap to move towards the goal.",
+          "from my current position, i need to navigate down through a gap in the lava wall to reach the green square below.",
+          "the red triangle is currently positioned above a gap in the lava wall, allowing me to move downward safely towards the green square.",
+          "i can move down to the gap in the lava wall below, which will then allow me to continue navigating toward the green square.",
+          "the optimal path is to move down through the gap in the lava wall and towards the green square.",
+          "the path is clear to the right and i need to navigate through the lava walls to reach the goal, so i will turn right to avoid the lava.",
+          "the goal is located below to the right, and i have an opening to navigate through by moving down and then turning right to reach it without backtracking."
+        ]
+      },
+      {
+        "episode": 12,
+        "success": true,
+        "steps": 1,
+        "actions": [
+          "move forward"
+        ],
+        "reasoning": [
+          "the goal is to navigate right, then down, through the first gap in the lava, and continue moving until reaching the green square."
+        ]
+      },
+      {
+        "episode": 13,
+        "success": true,
+        "steps": 3,
+        "actions": [
+          "move forward",
+          "move forward",
+          "move forward"
+        ],
+        "reasoning": [
+          "the path leads downward through the gaps in the lava to the green square at the bottom. first, i will move down through the gap directly below.",
+          "i will navigate down through the gap in the lava wall to reach the goal at the green square without backtracking.",
+          "the path is clear ahead with no lava blocks immediately in front, so i will continue forward toward the goal."
+        ]
+      },
+      {
+        "episode": 14,
+        "success": true,
+        "steps": 29,
+        "actions": [
+          "move forward",
+          "turn left",
+          "move forward",
+          "turn right",
+          "move forward",
+          "turn right",
+          "turn right",
+          "turn right",
+          "move forward",
+          "move forward",
+          "move forward",
+          "move forward",
+          "turn left",
+          "move forward",
+          "turn right",
+          "move forward",
+          "turn right",
+          "move forward",
+          "move forward",
+          "move forward",
+          "turn left",
+          "turn left",
+          "turn right",
+          "move forward",
+          "move forward",
+          "turn right",
+          "turn right",
+          "turn left",
+          "move forward"
+        ],
+        "reasoning": [
+          "the red triangle is at the top left and needs to move down through a gap in the lava wall to reach the green square at the bottom right while navigating through a safe path.",
+          "the path is blocked by lava to the right, so i will turn left and navigate downward through the gaps in the lava.",
+          "i need to navigate downwards through the gap in the lava wall and then move towards the green square.",
+          "i need to turn right to align with the gap in the lava wall directly below, allowing me to move safely toward the goal.",
+          "the path ahead appears clear after turning right, allowing for a straightforward move down to reach the next gap in the lava walls.",
+          "the path ahead has a block of lava followed by a safe gap to the right, so i will need to turn right to navigate around the lava.",
+          "the red triangle is currently facing downwards; i will turn right and move towards the gap in the lava wall to progress towards the green square.",
+          "the path from my current position allows me to turn right and move downward through the first gap in the lava wall to safely reach the goal.",
+          "the current position is facing up with a clear path ahead after navigating through the last lava gap; we need to move forward through the next safe gap towards the goal.",
+          "the current position needs to navigate downwards to find a gap in the lava wall to the right, moving towards the goal at the green square.",
+          "the optimal path involves moving down through the gap, as moving forward leads into lava.",
+          "i need to navigate downwards to find a gap in the lava wall and reach the green square at the bottom right corner, so i will move forward.",
+          "i am facing up and need to navigate through the gap two spaces to the left before heading down toward the goal in the green square. i will first turn left to face left towards the gap.",
+          "the path requires navigating down through the gaps in the lava walls; moving forward will keep along the safe path toward the goal.",
+          "the path ahead is blocked by lava, but turning right (to direction 0) opens up a safe path to move toward the first gap in the lava strips.",
+          "i can see a safe path down and to the right through the gaps in the lava to reach the green square, so i should move forward from the current position.",
+          "the red triangle is at the top of the map, facing up, and needs to move through the gap in the lava on its right to reach the green square. following the last actions and the current direction, i need to turn right and then move through the gap in the lava.",
+          "the current position is facing down, and the next safe move is to move forward, navigating through the gap directly below to reach the green square.",
+          "the current position is just below the top row, facing right, with a clear path ahead to navigate through the lava gaps toward the goal. the next step is to move forward to reach the first gap in the lava wall.",
+          "i need to move down through the gap in the lava strip to reach the green square at the bottom while avoiding the lava.",
+          "i need to turn around to navigate towards the gaps in the lava wall toward the green square while avoiding lava.",
+          "the current position is directly above the lava wall on the left, and i need to navigate down through the gap in the lava wall to reach the green square. therefore, i will turn left to prepare for my next move down through the gap.",
+          "the goal is to navigate through the gaps in the lava walls, and the safest route from the current position is to turn right and move down toward the next gap.",
+          "i need to navigate down toward the gaps in the lava to reach the green square while avoiding backtracking. the next action should be to move forward to get closer to the safe path.",
+          "the path to the green square is blocked by lava, so i need to navigate downwards, avoiding any lava walls. i will move forward to find the next gap.",
+          "i will turn right and then move forward to navigate through the gap in the lava wall towards the goal.",
+          "i need to navigate through the gap in the lava wall to the right and then move downward towards the goal, so i'll turn right to face the downward path.",
+          "the current location is just above a lava wall and there is a gap to the left; moving forward will result in hitting lava, so i will turn left and move through the gap to navigate safely toward the goal.",
+          "i am currently facing right and need to move down through the gap in the lava to navigate toward the green square. the path is clear in that direction."
+        ]
+      },
+      {
+        "episode": 15,
+        "success": true,
+        "steps": 3,
+        "actions": [
+          "move forward",
+          "turn right",
+          "move forward"
+        ],
+        "reasoning": [
+          "the goal is at the bottom right, and i need to move down through the gaps without hitting lava. i'll first move right to find a safe path down.",
+          "the path ahead is blocked by lava, so i need to turn right to navigate around it and find a safe passage toward the goal.",
+          "the path is blocked above by lava, but moving down from the red triangle leads directly to a gap, allowing me to navigate towards the goal in the green square at the bottom right."
+        ]
+      },
+      {
+        "episode": 16,
+        "success": true,
+        "steps": 11,
+        "actions": [
+          "move forward",
+          "move forward",
+          "turn left",
+          "move forward",
+          "turn right",
+          "move forward",
+          "turn right",
+          "move forward",
+          "turn left",
+          "move forward",
+          "move forward"
+        ],
+        "reasoning": [
+          "the path from the red triangle involves moving down, navigating left around the lava, and then moving right to reach the green square.",
+          "the red triangle is one step away from a gap in the lava wall directly ahead, allowing access to the next safe area toward the goal.",
+          "the current position is facing right, and moving forward will lead directly into a section of lava; thus, i need to turn to navigate the gap in the lava wall instead.",
+          "the path is clear to move down through the gap in the lava wall, leading directly toward the goal.",
+          "the path to the goal is clear after analyzing the map layout, and i will need to turn right to navigate through the next gap in the lava walls.",
+          "i can see a gap in the lava wall directly below me, allowing me to move downward towards the goal.",
+          "i need to navigate down toward the green square while avoiding any lava blocks, so i will turn right to align myself toward the gaps in the lava.",
+          "the path to the goal involves moving down through the gap in the lava, then heading right. i will move forward to continue towards the goal.",
+          "i need to navigate left through the gap in the lava wall below to reach the goal safely.",
+          "the path leads straight down where there is a gap in the lava, allowing movement toward the goal at the green square.",
+          "the map shows a safe path downwards through a gap in the lava to reach the goal, and i am currently facing right, ready to move towards the gap."
+        ]
+      },
+      {
+        "episode": 17,
+        "success": true,
+        "steps": 1,
+        "actions": [
+          "move forward"
+        ],
+        "reasoning": [
+          "the path to the goal involves moving to the right, navigating through gaps in the lava walls, and then heading down towards the green square."
+        ]
+      },
+      {
+        "episode": 18,
+        "success": true,
+        "steps": 50,
+        "actions": [
+          "move forward",
+          "move forward",
+          "turn left",
+          "move forward",
+          "move forward",
+          "move forward",
+          "turn right",
+          "turn right",
+          "turn left",
+          "move forward",
+          "move forward",
+          "move forward",
+          "move forward",
+          "turn right",
+          "turn left",
+          "move forward",
+          "move forward",
+          "move forward",
+          "move forward",
+          "move forward",
+          "turn left",
+          "move forward",
+          "move forward",
+          "move forward",
+          "turn right",
+          "move forward",
+          "move forward",
+          "move forward",
+          "move forward",
+          "move forward",
+          "turn down",
+          "turn left",
+          "turn left",
+          "move forward",
+          "turn down",
+          "move forward",
+          "move forward",
+          "move forward",
+          "turn down",
+          "turn right",
+          "move forward",
+          "move forward",
+          "turn down",
+          "move forward",
+          "turn right",
+          "move forward",
+          "move forward",
+          "move forward",
+          "turn right",
+          "move forward"
+        ],
+        "reasoning": [
+          "the path requires navigating down through gaps in the lava to reach the green square, starting by moving forward into the open space below.",
+          "the path from the red triangle to the green square requires moving down to navigate through the gaps in the lava walls.",
+          "the path ahead is blocked by lava, so i need to turn left to navigate around it and proceed towards the gap in the lava wall.",
+          "the path to the goal is clear by moving forward before navigating the gaps in the lava walls below.",
+          "i need to move down through the gap in the lava wall to reach the green square below.",
+          "there's a gap in the lava wall directly in front, allowing me to move safely downwards towards the goal.",
+          "the red triangle is currently at the top left and needs to navigate down through the gap in the lava wall on the left side to reach the green square below. after the last action, the next move should be to turn right to align with the gap.",
+          "the current position is facing right, and the next step requires a gap in the lava wall to proceed towards the goal, which is directly below the current position. i can turn down to navigate through the gap in the lava.",
+          "i am currently positioned below the lava wall and need to navigate left to find a gap in the lava and move toward the goal.",
+          "the path from the current location (at the red triangle) needs to navigate down and around the lava to reach the green square; moving forward is safe as it will lead me closer to the goal.",
+          "the path toward the goal requires moving to the right to navigate through the gap in the lava, as i am currently facing right.",
+          "i need to navigate through the gaps in the lava walls, moving from my current position at the red triangle rightward and then down to reach the green square.",
+          "the only safe path from my current position is to move forward into the gap in the lava wall that leads toward the goal.",
+          "i need to navigate down through the gap in the lava wall below me to reach the goal at the lower green square.",
+          "the current position is just below the lava wall and needs to navigate around it by moving left to find the gap in the lava wall below and then proceed toward the goal.",
+          "i can move forward to navigate straight down to the gap in the lava, then continue toward the green square.",
+          "the red triangle is currently positioned at the top-left corner, facing right, and to reach the green square at the bottom-right, i need to navigate through the gaps in the lava walls by moving forward towards an opening.",
+          "the path ahead has a gap in the lava wall that can be accessed by moving down, which leads toward the green square goal.",
+          "i need to navigate down through the gap in the lava to progress towards the goal, which is positioned below me.",
+          "the path is clear to move forward from the current position, avoiding lava, to reach the gap in the lava wall toward the goal.",
+          "from my current position, i can turn left to navigate around the lava and find a gap to continue toward the green square.",
+          "i need to move down through the gap in the lava wall to reach the green square, as there's a path directly available downward.",
+          "from the current position, i need to navigate downwards through the gap in the lava to reach the green square.",
+          "the path is clear to move down through the gap in the lava wall directly ahead of me, leading me toward the goal.",
+          "the red triangle is at the top right, and i need to navigate down and left through the gaps in the lava to reach the green square at the bottom left. since i am currently facing up (direction 3) and there\u2019s lava directly ahead, i need to turn to find an alternate path.",
+          "i need to navigate downwards through the gap in the lava wall and move towards the goal, which is located in the lower right corner. my current direction is facing downwards, so i can move forward into the safe space.",
+          "i see that i need to navigate through the gaps in the lava wall and my current position allows me to move forward through the gap to reach the green square.",
+          "the path from the red triangle to the green square requires navigating through the gaps in the lava walls; moving forward will bring me closer to the goal.",
+          "the path is clear to move straight down through the gap in the lava wall to reach the goal.",
+          "i need to move down and navigate through the gaps in the lava walls while heading towards the green square. the next move can be forward into a safe cell directly below.",
+          "i need to navigate down through the gaps in the lava walls to reach the green square at the bottom right; therefore, i'll first turn down and move forward through the gap.",
+          "i will turn left to navigate around the lava wall and then move forward to find a safe path toward the goal.",
+          "the path ahead is blocked by lava, so i need to turn left to find a gap in the lava wall.",
+          "the path has a gap in the lava wall below, allowing movement downward towards the goal; i will move down into that gap.",
+          "the red triangle is currently facing left and needs to navigate around lava walls to reach the green square by turning down and moving through the gaps.",
+          "the direct path involves moving downward through the gap in lava, then moving right to avoid additional lava walls and reach the goal.",
+          "the map has lava walls that need to be navigated around, and the goal is straight ahead after moving left and then down through the gaps.",
+          "the current position is right before a vertical gap in the lava, and moving forward will pass through the gap directly to the goal.",
+          "i need to navigate down to find a gap in the lava wall to progress towards the green square, so i will turn down and move forward.",
+          "the path leads down to the right gap in the lava wall, allowing me to proceed towards the goal in the bottom right corner.",
+          "i need to navigate down and around the lava using the gaps to reach the green square; the next step is to move forward since i've turned down and am aligned to proceed.",
+          "i see a gap in the lava wall directly to the right and can continue moving toward the goal in the green square without backtracking.",
+          "i need to navigate down through the available gaps to the green square while avoiding the lava at the top and bottom.",
+          "the path from the current position is clear to move forward towards the gap in the lava wall, allowing safe navigation to the green square.",
+          "the path is blocked by lava to the right and downward, so i need to turn to navigate around the lava walls. the gap is available if i turn right and then move forward.",
+          "the path has a gap in the lava wall to move down, leading towards the goal at the green square, so i will proceed downwards.",
+          "i need to navigate down and around the lava walls to reach the green square, and since i'm currently facing right and there's a gap below, i will move forward to reach that gap.",
+          "the path requires moving forward through a gap in the lava wall to navigate toward the green square.",
+          "i need to navigate down through the gap in the lava to reach the goal in the lower right, so i will first turn right to align with the gap below.",
+          "the current location is facing down and needs to navigate through the gaps in the lava wall. the path ahead is clear to proceed downward and then left toward the goal."
+        ]
+      },
+      {
+        "episode": 19,
+        "success": true,
+        "steps": 9,
+        "actions": [
+          "turn down",
+          "move forward",
+          "move forward",
+          "turn left",
+          "move forward",
+          "move forward",
+          "turn right",
+          "move forward",
+          "move forward"
+        ],
+        "reasoning": [
+          "the goal is directly below the starting position, but there is a wall of lava in between. i need to turn down and navigate around the lava to reach the green square.",
+          "the path to the green square involves moving down to navigate around the lava wall and through the gaps safely.",
+          "from my current position, i need to navigate down through the gap in the lava wall toward the green square, so i will move forward.",
+          "the path from the current position appears blocked by lava to the right and directly below, thus i will turn left to find the next gap in the lava walls leading towards the goal.",
+          "the red triangle is currently in the upper left area, and the optimal path is to move down to navigate through the gaps in the lava walls towards the green square in the lower right.",
+          "the path is clear to navigate through the gaps in the lava wall directly below while heading toward the green square.",
+          "i am currently facing up, but i need to navigate down and right through the gaps in the lava walls. i will turn right to align myself toward a safe path.",
+          "the optimal path from the current position involves moving down to navigate through the gaps in the lava walls to reach the green square.",
+          "the path toward the green square requires moving forward through the gap in the lava wall above, allowing me to reach the goal safely without backtracking."
+        ]
+      }
+    ]
+  }
+}
